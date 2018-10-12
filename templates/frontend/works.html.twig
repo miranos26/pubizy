@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Nos travaux : logo, flyer, plaquette, impression dans la Drôme {% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+
+{% endblock %}
+
+{% block body %}
+
+    <!-- PAGE HEADER -->
+    <header class="page-header-works">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 m-auto text-center">
+                    <h1 class="Title-Homepage"> Réalisations </h1>
+                    <p class="underline"> Les références de l'agence web & print Pubizy </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- PORTFOLIO GALLERY -->
+    <section id="gallery" class=" container-pages py-5">
+        <div class="container">
+
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <a href="https://source.unsplash.com/random/560x560" data-toggle="lightbox" data-gallery="img-gallery" data-height="560" data-width="560">
+                        <img src="https://source.unsplash.com/random/560x560" alt="" class="img-fluid">
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="https://source.unsplash.com/random/561x561" data-toggle="lightbox" data-gallery="img-gallery" data-height="561" data-width="561">
+                        <img src="https://source.unsplash.com/random/561x561" alt="" class="img-fluid">
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="https://source.unsplash.com/random/559x559" data-toggle="lightbox" data-gallery="img-gallery" data-height="559" data-width="559">
+                        <img src="https://source.unsplash.com/random/559x559" alt="" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <a href="https://source.unsplash.com/random/563x563" data-toggle="lightbox" data-gallery="img-gallery" data-height="563" data-width="563">
+                        <img src="https://source.unsplash.com/random/563x563" alt="" class="img-fluid">
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="https://source.unsplash.com/random/564x564" data-toggle="lightbox" data-gallery="img-gallery" data-height="564" data-width="564">
+                        <img src="https://source.unsplash.com/random/564x564" alt="" class="img-fluid">
+                    </a>
+                </div>
+
+                <div class="col-md-4">
+                    <a href="https://source.unsplash.com/random/558x558" data-toggle="lightbox" data-gallery="img-gallery" data-height="558" data-width="558">
+                        <img src="https://source.unsplash.com/random/558x558" alt="" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+    </section>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+
+{% endblock %}

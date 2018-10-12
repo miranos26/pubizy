@@ -1,0 +1,208 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Agence de communication Drôme. Création de sites internet, graphisme, impression et publicité {% endblock %}
+
+
+
+{% block body %}
+    <!-- PAGE HEADER -->
+    <header class="page-header-services">
+        <div class="overlay-services-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 m-auto text-center">
+                        <h1 class="Title-Homepage"> Nos Services </h1>
+                        <p class="underline"> Découvrez tout ce que Pubizy peut faire pour vous ! </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="service-wrapper">
+        <!-- ICON BOXES -->
+        <section class="container-pages p-5">
+            <div class="container">
+                <div class="row pt-4">
+
+                    <div class="col-lg-4 mb-5">
+                        <div class="card text-center">
+                            <div class="bg-card-services gradient-primary">
+                                <div class="card-body card-services">
+                                    <div class="mt-2 bg-icon-services gradient-primary">
+                                        <img src="{{ asset('img/004-graphic-design-white.svg') }}" class=" pt-2 icon-services-white"/>
+                                    </div>
+                                    <h3 class="title-card-services"> Logo & identité </h3>
+                                    <hr class="hr-services">
+                                    <ul>
+                                        <li> Logo </li>
+                                        <li> Charte Graphique </li>
+                                        <li> Carte de visite </li>
+                                        <li> Création style de marque </li>
+                                        <li> Intervention graphique </li>
+                                        <li> Design powerpoint </li>
+                                        <li> Signature de mail </li>
+                                        <li> Mascotte </li>
+                                        <li> Enveloppe </li>
+                                        <li> Carte de correspondance </li>
+                                        <li> Papier en-tête </li>
+                                        <li> Et + encore  </li>
+                                    </ul>
+                                    <a href="{{ path('devis') }}" class="btn gradient-primary text-white my-3"> Faire une demande </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-5">
+                        <div class="card text-center">
+                            <div class="bg-card-services gradient-yellow">
+                                <div class="card-body card-services">
+                                    <div class="mt-2 bg-icon-services gradient-yellow">
+                                        <img src="{{ asset('img/003-flyer-white.svg') }}" class=" pt-2 icon-services-white"/>
+                                    </div>
+                                    <h3 class="title-card-services"> Supports de communication </h3>
+                                    <hr class="hr-services">
+                                    <ul>
+                                        <li> Plaquette entreprise </li>
+                                        <li> Flyer et Tract </li>
+                                        <li> Carte de visite </li>
+                                        <li> Autocollant & vinyle </li>
+                                        <li> Affiche </li>
+                                        <li> Communiqué de Presse </li>
+                                        <li> Fiche produit </li>
+                                        <li> Fiche métier </li>
+                                        <li> Dépliant </li>
+                                        <li> Carte de voeux </li>
+                                        <li> Étiquette produit </li>
+                                        <li> Kakémono et Roll-up </li>
+                                        <li> Brochure </li>
+                                        <li> Et + encore  </li>
+                                    </ul>
+                                    <a href="{{ path('devis') }}" class="btn gradient-yellow text-white my-3"> Faire une demande </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-5">
+                        <div class="card text-center">
+                            <div class="bg-card-services gradient-blue">
+                                <div class="card-body card-services">
+                                    <div class="mt-2 bg-icon-services gradient-blue">
+                                        <img src="{{ asset('img/009-coding-white.svg') }}" class=" pt-2 icon-services-white"/>
+                                    </div>
+                                    <h3 class="title-card-services"> Web & Référencement </h3>
+                                    <hr class="hr-services">
+                                    <ul>
+                                        <li> Création de sites internet </li>
+                                        <li> Site vitrine </li>
+                                        <li> Site e-commerce </li>
+                                        <li> Site administrable </li>
+                                        <li> Application Web </li>
+                                        <li> Ajout de page site existant </li>
+                                        <li> Mobile design </li>
+                                        <li> Webdesign </li>
+                                        <li> Visuels réseaux sociaux </li>
+                                        <li> Et + encore  </li>
+                                    </ul>
+                                    <a href="{{ path('devis') }}" class="btn gradient-blue text-white my-3"> Faire une demande </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-4 mb-5">
+                        <div class="card text-center">
+                            <div class="bg-card-services gradient-orange">
+                                <div class="card-body card-services">
+                                    <div class="mt-2 bg-icon-services gradient-orange">
+                                        <img src="{{ asset('img/006-digital-marketing-white.svg') }}" class=" pt-2 icon-services-white"/>
+                                    </div>
+                                    <h3 class="title-card-services"> Marketing Digital </h3>
+                                    <hr class="hr-services">
+                                    <ul>
+                                        <li> Visuels Réseaux sociaux </li>
+                                        <li> Canvas Facebook </li>
+                                        <li> Canvas Instagram </li>
+                                        <li> Carrousel Facebook </li>
+                                        <li> Visuels Instagram </li>
+                                        <li> Optimisation du référencement </li>
+                                        <li> Campagne Google Adwords </li>
+                                        <li> Mise en place Google Analytics </li>
+                                        <li> Et + encore  </li>
+                                    </ul>
+                                    <a href="{{ path('devis') }}" class="btn gradient-orange text-white my-3"> Faire une demande </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-5">
+                        <div class="card text-center">
+                            <div class="bg-card-services gradient-purple">
+                                <div class="card-body card-services">
+                                    <div class="mt-2 bg-icon-services gradient-purple">
+                                        <img src="{{ asset('img/014-cube-white.svg') }}" class=" pt-2 icon-services-white"/>
+                                    </div>
+                                    <h3 class="title-card-services"> 3D & Vidéo </h3>
+                                    <hr class="hr-services">
+                                    <ul>
+                                        <li> Motion Design </li>
+                                        <li> Montage vidéo </li>
+                                        <li> Vidéo de présentation </li>
+                                        <li> Modélisation 3D </li>
+                                        <li> Plan de vente 3D </li>
+                                        <li> Animation 3D </li>
+                                        <li> Imagerie 3D Scientifique </li>
+                                        <li> Architecture 3D </li>
+                                        <li> Packshot produit en 3D </li>
+                                        <li> Boutique produit 3D </li>
+                                        <li> Panorama 360° </li>
+                                        <li> Et + encore  </li>
+                                    </ul>
+                                    <a href="{{ path('devis') }}" class="btn gradient-purple text-white my-3"> Faire une demande </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-5">
+                        <div class="card text-center">
+                            <div class="bg-card-services gradient-turquoise">
+                                <div class="card-body card-services">
+                                    <div class="mt-2 bg-icon-services gradient-turquoise">
+                                        <img src="{{ asset('img/014-cube-white.svg') }}" class=" pt-2 icon-services-white"/>
+                                    </div>
+                                    <h3 class="title-card-services"> Execution Graphique </h3>
+                                    <hr class="hr-services">
+                                    <ul>
+                                        <li> sur : Page document print </li>
+                                        <li> sur : Newsletter HTML </li>
+                                        <li> sur : Élément graphique </li>
+                                        <li> sur : Carte de visite </li>
+                                        <li> sur : Logo </li>
+                                        <li> sur : Vidéo </li>
+                                        <li> Retouche Photo </li>
+                                        <li> Détourage </li>
+                                        <li> Adaptation du format des documents </li>
+                                        <li> Et + encore  </li>
+                                    </ul>
+                                    <a href="{{ path('devis') }}" class="btn gradient-turquoise text-white my-3"> Faire une demande </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+{% endblock %}
