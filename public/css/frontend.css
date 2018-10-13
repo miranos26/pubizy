@@ -192,8 +192,13 @@ header{
 .Title-Homepage{
     font-family: "Comfortaa", 'helvetica', 'sans-serif';
     font-size: 3.4rem;
+}
+
+.page-header-services .Title-Homepage, .page-header-works .Title-Homepage
+{
     margin-top: 10rem;
 }
+
 
 #home-icons{
     cursor:default;
@@ -355,7 +360,7 @@ header{
 {
     font-size:1em;
     color: #9b9b9b;
-    font-family: "Montserrat Light";
+    font-family: "Montserrat Light", "sans-serif";
 }
 
 /** ------------------------ FOOTER --------------------------------- **/

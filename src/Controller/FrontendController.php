@@ -32,11 +32,19 @@ class FrontendController extends AbstractController
     }
 
     /**
-     * @Route("/devis", name="devis")
+     * @Route("/devis", name="quotation")
      */
     public function quotation()
     {
         return $this->render('quotation/quotation_home.html.twig');
+    }
+
+    /**
+     * @Route("/inscription", name="suscribe")
+     */
+    public function suscribe()
+    {
+        return $this->render('frontend/suscribe.html.twig');
     }
 
 }
