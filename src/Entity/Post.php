@@ -2,10 +2,12 @@
 
 namespace App\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Post
 {
@@ -24,17 +26,19 @@ class Post
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $author;
+    private $slug;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $category;
+    private $author;
 
     /**
      * @ORM\Column(type="text")
      */
     private $content;
+
+    private $excerpt;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -45,6 +49,25 @@ class Post
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="posts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    public $category_link;
+
+    /**
+     * Permet d'initialiser le slug en fonction du titre
+     *
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function initializeSlug(){
+        if(empty($this->slug)) {
+            $slugify = new Slugify();
+            $this->slug = $slugify->slugify($this->title);
+        }
+    }
 
     public function getId(): ?int
     {
@@ -63,6 +86,18 @@ class Post
         return $this;
     }
 
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
     public function getAuthor(): ?string
     {
         return $this->author;
@@ -75,17 +110,12 @@ class Post
         return $this;
     }
 
-    public function getCategory(): ?string
+    public function getExcerpt(): ?string
     {
-        return $this->category;
+        $this->excerpt = substr($this->content, 0,100) . '...';
+        return $this->excerpt;
     }
 
-    public function setCategory(string $category): self
-    {
-        $this->category = $category;
-
-        return $this;
-    }
 
     public function getContent(): ?string
     {
@@ -119,6 +149,18 @@ class Post
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getCategoryLink(): ?Category
+    {
+        return $this->category_link;
+    }
+
+    public function setCategoryLink(?Category $category_link): self
+    {
+        $this->category_link = $category_link;
 
         return $this;
     }
