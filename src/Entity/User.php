@@ -2,14 +2,24 @@
 
 namespace App\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity(
+ *     fields={"email"},
+ *     message="Un autre utilisateur s'est déjà inscrit avec cette adresse email, merci de la modifier"
+ * )
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -19,19 +29,22 @@ class User
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $role;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="vous devez renseigner votre prénom")
      */
-    private $name;
+    private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\NotBlank(message="Vous devez renseigner votre nom")
      */
     private $lastname;
+
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -40,6 +53,7 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(message="Veuillez renseigner un email valide")
      */
     private $email;
 
@@ -50,24 +64,19 @@ class User
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=5, minMessage="Votre mot de passe doit comporter au minimum 5 caractères")
      */
-    private $password;
+    private $hash;
+
+    /**
+     * @Assert\EqualTo(propertyPath="hash", message="Vous n'avez pas correctement confirmé votre mot de passe")
+     */
+    public $passwordConfirm;
 
     /**
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
-
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $numberOfOrders;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $numberOfBuy;
 
     /**
      * @ORM\Column(type="integer")
@@ -75,7 +84,7 @@ class User
     private $fidelityPoints;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Newsletter", inversedBy="user")
+     * @ORM\OneToOne(targetEntity="App\Entity\Newsletter", mappedBy="user")
      */
     private $newsletter;
 
@@ -89,10 +98,34 @@ class User
      */
     private $quotations;
 
+    private $encoder;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;
+
+
     public function __construct()
     {
         $this->orders = new ArrayCollection();
         $this->quotations = new ArrayCollection();
+
+        $this->setCreatedAt(new \DateTime());
+        $this->setFidelityPoints(0);
+    }
+
+    /**
+     * Permet d'initialiser le slug en fonction du titre
+     *
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function initializeSlug(){
+        if(empty($this->slug)) {
+            $slugify = new Slugify();
+            $this->slug = $slugify->slugify($this->firstname . ' ' . $this->lastname);
+        }
     }
 
     public function getId(): ?int
@@ -105,21 +138,21 @@ class User
         return $this->role;
     }
 
-    public function setRole(string $role): self
+    public function setRole(string $role): ?self
     {
         $this->role = $role;
 
         return $this;
     }
 
-    public function getName(): ?string
+    public function getFirstname(): ?string
     {
-        return $this->name;
+        return $this->firstname;
     }
 
-    public function setName(string $name): self
+    public function setFirstname(string $firstname): self
     {
-        $this->name = $name;
+        $this->firstname = $firstname;
 
         return $this;
     }
@@ -135,6 +168,13 @@ class User
 
         return $this;
     }
+
+
+    public function getFullname(): ?string
+    {
+        return "{$this->firstname} {$this->lastname}";
+    }
+
 
     public function getSociety(): ?string
     {
@@ -172,14 +212,14 @@ class User
         return $this;
     }
 
-    public function getPassword(): ?string
+    public function getHash(): ?string
     {
-        return $this->password;
+        return $this->hash;
     }
 
-    public function setPassword(string $password): self
+    public function setHash(string $hash): self
     {
-        $this->password = $password;
+        $this->hash = $hash;
 
         return $this;
     }
@@ -199,26 +239,12 @@ class User
 
     public function getNumberOfOrders(): ?int
     {
-        return $this->numberOfOrders;
+        return $this->getOrders()->count();
     }
 
-    public function setNumberOfOrders(int $numberOfOrders): self
+    public function getNumberOfQuotation(): ?int
     {
-        $this->numberOfOrders = $numberOfOrders;
-
-        return $this;
-    }
-
-    public function getNumberOfBuy(): ?int
-    {
-        return $this->numberOfBuy;
-    }
-
-    public function setNumberOfBuy(int $numberOfBuy): self
-    {
-        $this->numberOfBuy = $numberOfBuy;
-
-        return $this;
+        return $this->getQuotations()->count();
     }
 
     public function getFidelityPoints(): ?int
@@ -306,4 +332,39 @@ class User
 
         return $this;
     }
+
+    public function getRoles()
+    {
+        return ['ROLE_USER'];
+    }
+
+    public function getPassword()
+    {
+        return $this->hash;
+    }
+
+    // Sel utilisé pour encoder le mot de passe (pas utile comme utilisé security.yaml)
+    public function getSalt(){}
+
+    public function getUsername()
+    {
+        return $this->email;
+    }
+
+    // Si on a besoin de supprimer des données sensible stocké en clair dans la bdd
+    public function eraseCredentials(){}
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+
 }

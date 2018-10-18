@@ -1,0 +1,46 @@
+{% block nav %}
+
+    <nav class="navbar navbar-expand-sm navbar-menu-dark menu-nav-account">
+        <div class="container">
+
+            <button class="navbar-toggler" data-toggle="collapse" data-target="navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto main-menu">
+                    <li class="nav-item dropdown mx-2">
+                        <a href="#" class="nav-link nav-item-account dropdown-toggle" data-toggle="dropdown" id="accountDropdownLink"> Bienvenue  <strong class="firstname-account"> {{ app.token.user.firstname | capitalize }} </strong> </a>
+
+                        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="accountDropdownLink">
+                            <a href="{{ path('account_index') }}" class="dropdown-item text-dark"> Mon compte </a>
+                            <a href="{{ path('account_profile') }}" class="dropdown-item text-dark"> Modifier mon profil </a>
+                            <div class="dropdown-divider"> </div>
+                            <a href="{{ path('account_logout') }}" class="dropdown-item text-dark"> Déconnexion </a>
+                        </div>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a href="{{ path('account_logout') }}" class="nav-link nav-item-account"> Suivi </a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a href="{{ path('account_logout') }}" class="nav-link nav-item-account"> Gestion </a>
+                    </li>
+                    <li class="nav-item order-nav-item mx-2">
+                        <a href="{{ path('home') }}" class="nav-link nav-item-account"> <i class="fas fa-shopping-cart"></i> Commander  </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Créations des messages flashes dispo dans la variable globale $app et message créés dans les controller-->
+    {% for label, messages in app.flashes %}
+        <div class="container">
+            <div class="alert alert-{{ label }}">
+                {% for message in messages %}
+                    <p>{{ message | raw }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

@@ -29,14 +29,10 @@ class Newsletter
     private $createdAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="newsletter")
+     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="newsletter")
      */
     private $user;
 
-    public function __construct()
-    {
-        $this->user = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -69,33 +65,22 @@ class Newsletter
 
 
     /**
-     * @return Collection|User[]
+     * @return User
      */
-    public function getUser(): Collection
+    public function getUser(): User
     {
         return $this->user;
     }
 
-    public function addUser(User $user): self
+    public function setUser(User $user):self
     {
-        if (!$this->user->contains($user)) {
-            $this->user[] = $user;
+        $this->user = $user;
+
+        if($user->getNewsletter() !== $this) {
             $user->setNewsletter($this);
         }
 
         return $this;
     }
 
-    public function removeUser(User $user): self
-    {
-        if ($this->user->contains($user)) {
-            $this->user->removeElement($user);
-            // set the owning side to null (unless already changed)
-            if ($user->getNewsletter() === $this) {
-                $user->setNewsletter(null);
-            }
-        }
-
-        return $this;
-    }
 }

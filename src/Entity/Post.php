@@ -4,10 +4,16 @@ namespace App\Entity;
 
 use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PostRepository")
  * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity(
+ *     fields={"title"},
+ *     message="Un autre article possède déjà ce titre, merci de le modifier."
+ * )
  */
 class Post
 {
@@ -20,6 +26,7 @@ class Post
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=10, max=80, minMessage="Le titre doit faire plus de 10 caractères.", maxMessage="Le titre ne peut pas faire plus de 80 caractères.")
      */
     private $title;
 
@@ -42,6 +49,7 @@ class Post
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Url()
      */
     private $image;
 
@@ -54,7 +62,13 @@ class Post
      * @ORM\ManyToOne(targetEntity="App\Entity\Category", inversedBy="posts")
      * @ORM\JoinColumn(nullable=false)
      */
-    public $category_link;
+    public $category;
+
+    public function __construct()
+    {
+        $this->setCreatedAt(new \DateTime());
+    }
+
 
     /**
      * Permet d'initialiser le slug en fonction du titre
@@ -153,14 +167,14 @@ class Post
         return $this;
     }
 
-    public function getCategoryLink(): ?Category
+    public function getCategory(): ?Category
     {
-        return $this->category_link;
+        return $this->category;
     }
 
-    public function setCategoryLink(?Category $category_link): self
+    public function setCategory(?Category $category): self
     {
-        $this->category_link = $category_link;
+        $this->category = $category;
 
         return $this;
     }

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Compte de {{ user.fullName }} {% endblock %}
+
+{%  block navigation %}
+    {% include 'partials/header-account.html.twig' %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-3 text-center">
+                <span class="badge badge-primary"> {{ user.fidelityPoints }} points de fidélité </span>
+            </div>
+            <div class="col-9">
+                <h1> {{ user.fullName }}</h1>
+                <!-- Est-ce que l'utilisateur que l'on reçoit est bien le même que celui de la variable globale $app (qui est donc connecté) -->
+                {% if user is same as (app.user) %}
+                    <div class="mt-3">
+                        <a href="{{ path('account_profile') }}" class="btn btn-primary mr-2 mb-2"> Modifier mes informations </a>
+                        <a href="{{ path('account_password') }}" class="btn btn-primary mr-2 mb-2"> Modifier mon mot de pass </a>
+                    </div>
+                {% endif %}
+            </div>
+            <h1> Bonjour {{ user.firstName }}</h1>
+
+        </div>
+    </div>
+
+{% endblock %}

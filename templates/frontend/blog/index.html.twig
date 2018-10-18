@@ -1,21 +1,20 @@
 {% extends 'base.html.twig' %}
 
+{%  block navigation %}
+    {% include 'partials/header-blog.html.twig' %}
+{% endblock %}
+
 {% block title %} Blog (Astuces graphisme, impression, communication, sites internet) {% endblock %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
-
-{% endblock %}
 
 {% block body %}
 
     <!-- PAGE HEADER -->
-    <header class="page-header-works">
+    <header class="pageHeaderBlog">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 m-auto text-center">
-                    <h1 class="Title-Homepage"> Bienvenue sur le blog </h1>
+                    <h1 class="Title-Homepage-blog mt-4"> Le blog de Pubizy </h1>
                     <p class="underline"> Sites internet, print, web </p>
                 </div>
             </div>
@@ -24,9 +23,8 @@
 
 
     <!-- PORTFOLIO GALLERY -->
-    <section class=" container-pages py-5">
+    <section class="py-5">
         <div class="container">
-
             <section id="blog" class="py-3 mb-5">
                 <div class="container">
                     <h2 class="text-center mb-5 mt-3"> Nos derniers articles </h2>
@@ -46,7 +44,7 @@
                                         <div class="card-body">
                                             <h4 class="card-title"> {{ post.title }} </h4>
                                             <p>
-                                                <small class="text-muted"> {{ post.category_link.title }} </small>
+                                                <small class="text-muted"> {{ post.category.title }} </small>
                                                 <small class="text-muted"> {{ post.createdAt | date('d/m/Y')}} </small>
                                             </p>
 

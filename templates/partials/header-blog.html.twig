@@ -1,0 +1,48 @@
+{% block nav %}
+
+    <nav class="navbar navbar-expand-sm navbar-menu-dark">
+        <div class="container">
+            <a href="{{ path('home') }}" class="navbar-brand"> <img class="logo" src="{{ asset("img/logo-pubizy.png") }}"> </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse pt-3" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto main-menu">
+                    <li class="nav-item">
+                        <a href="{{ path('home') }}" class="nav-link dark-active"> Accueil </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href=" {{ path('services') }}" class="nav-link"> Services </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('works') }}" class="nav-link"> Réalisations </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('account_register') }}" class="nav-link"> Inscription </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('account_login') }}" class="nav-link"> Connexion </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('blog') }}" class="nav-link"> Blog </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ path('quotation') }}" class="nav-link btn btn-primary ml-3"> Faire une demande </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Créations des messages flashes dispo dans la variable globale $app et message créés dans les controller-->
+    {% for label, messages in app.flashes %}
+        <div class="container">
+            <div class="alert alert-{{ label }}">
+                {% for message in messages %}
+                    <p>{{ message | raw }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

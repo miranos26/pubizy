@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Post;
+use App\Form\PostType;
 use App\Repository\PostRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -23,6 +25,7 @@ class BlogController extends AbstractController
         ]);
     }
 
+
     /**
      * Injection de dépendance : PostRepository
      * + Grâce au Param converter, il sait que l'on veut un Post et comme il y a un {slug} dans la route, il va aller chercher tout seul le bon article
@@ -38,15 +41,4 @@ class BlogController extends AbstractController
         ]);
     }
 
-
-    /**
-     * Permet de créer un article
-     *
-     * @Route("/admin/article/creer", name="post_create")
-     * @return Response
-     */
-
-    public function create(){
-        return $this->render('backend/admin/blog/create.html.twig');
-    }
 }

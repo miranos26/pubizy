@@ -24,7 +24,7 @@ class Category
     private $title;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="category_link")
+     * @ORM\OneToMany(targetEntity="App\Entity\Post", mappedBy="category")
      */
     private $posts;
 
@@ -62,7 +62,7 @@ class Category
     {
         if (!$this->posts->contains($post)) {
             $this->posts[] = $post;
-            $post->setCategoryLink($this);
+            $post->setCategory($this);
         }
 
         return $this;
@@ -73,8 +73,8 @@ class Category
         if ($this->posts->contains($post)) {
             $this->posts->removeElement($post);
             // set the owning side to null (unless already changed)
-            if ($post->getCategoryLink() === $this) {
-                $post->setCategoryLink(null);
+            if ($post->getCategory() === $this) {
+                $post->setCategory(null);
             }
         }
 
