@@ -8,6 +8,8 @@ use App\Form\AccountType;
 use App\Form\PasswordUpdateType;
 use App\Form\RegistrationType;
 use Doctrine\Common\Persistence\ObjectManager;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
@@ -83,7 +85,8 @@ class AccountController extends AbstractController
     /**
      * Permet d'afficher et de traiter le formulaire de modification de profil
      *
-     * @Route("/mon-compte/profil", name="account_profile")
+     * @Route("/mon-espace-client/profil", name="account_profile")
+     * @IsGranted("ROLE_USER")
      * @return Response
      */
     public function profile(Request $request, ObjectManager $manager){
@@ -111,7 +114,8 @@ class AccountController extends AbstractController
     /**
      * Permet de modifier le mot de passe
      *
-     * @Route("/mon-compte/mot-de-passe", name="account_password")
+     * @Route("/mon-espace-client/mot-de-passe", name="account_password")
+     * @IsGranted("ROLE_USER")
      * @return Response
      */
     public function updatePassword(Request $request, UserPasswordEncoderInterface $encoder, ObjectManager $manager){
@@ -155,7 +159,8 @@ class AccountController extends AbstractController
     /**
      * Permet d'afficher le profil de l'utilisateur connecté
      *
-     * @Route("/mon-compte", name="account_index")
+     * @Route("/mon-espace-client", name="account_index")
+     * @IsGranted("ROLE_USER")
      * @return Response
      */
     public function MyAccount(){

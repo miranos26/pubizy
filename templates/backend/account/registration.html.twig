@@ -6,14 +6,67 @@
 
 {% block body %}
 
+<section class="subscription-section">
+    <div class="container container-subscription">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="subscription-title"> S'inscrire sur <br> la plateforme Pubizy </h1>
+                <ul class="subscription-avantages-list">
+                    <li class="avantages-item">
+                        <span class="image-avantage-item">
+                              <img src="{{ asset('img/001-network.svg') }}" alt="une plateforme simple et ergonomique" class="network-icon">
+                        </span>
+                        <span class="text-avantage-item">
+                            Un espace client complet pour gérer toute votre communication d'entreprise
+                        </span>
+                    </li>
 
-    <div class="container">
-        <h1> Inscrivez vous sur le site </h1>
+                    <li class="avantages-item">
+                        <span class="image-avantage-item">
+                              <img src="{{ asset('img/002-shopping-online.svg') }}" alt="une plateforme simple et ergonomique" class="network-icon">
+                        </span>
+                        <span class="text-avantage-item">
+                            Commandez simplement vos produits publicitaires directement en ligne
+                        </span>
+                    </li>
 
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <button type="submit" class="btn btn-success"> Confirmez l'inscription </button>
-        {{ form_end(form) }}
+                    <li class="avantages-item">
+                        <span class="image-avantage-item">
+                              <img src="{{ asset('img/003-pay.svg') }}" alt="une plateforme simple et ergonomique" class="network-icon">
+                        </span>
+                        <span class="text-avantage-item">
+                             Des facilités de paiement et un programme qui récompense votre fidélité
+                        </span>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h2 class="text-white text-bienvenue text-center"> Bienvenue ! </h2>
+                {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-md-6">
+                        {{ form_widget(form.firstname) }}
+                    </div>
+                    <div class="col-md-6">
+                        {{ form_widget(form.lastname) }}
+                    </div>
+                </div>
+
+                {{ form_widget(form.email) }}
+                {{ form_widget(form.society) }}
+                {{ form_widget(form.phone) }}
+                {{ form_widget(form.hash) }}
+                {{ form_widget(form.passwordConfirm) }}
+
+                {{ form_widget(form) }}
+
+                <button type="submit" class="btn mt-4 btn-create-account"> Créer mon compte </button>
+                {{ form_end(form) }}
+                <a href="{{ path('account_login') }}" class="connexion-link-for-register-form"> J'ai déjà un compte </a>
+            </div>
+        </div>
     </div>
+</section>
 
 {% endblock %}

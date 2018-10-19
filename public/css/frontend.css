@@ -62,6 +62,18 @@ p, li, a {
     background:#16a086;
 }
 
+.btn-orange{
+    background: #f39c11;
+}
+
+.btn-pub-primary{
+    background: #00d78a;
+    color: white;
+    border:none;
+    font-family: "Open Sans", "sans-serif";
+    text-transform: uppercase;
+}
+
 .bg-teal-gradient{
     background: linear-gradient(243deg,#00bc9d 0%,#00d889 100%);
     color: white;
@@ -127,7 +139,7 @@ p, li, a {
 }
 
 .current{
-    color:#154069 !important;
+    color:#00d78a !important;
 }
 
 #logo-container{
@@ -156,7 +168,7 @@ p, li, a {
 
 .logo
 {
-    width: 150px;
+    width: 120px;
 }
 
 /** ------------------------------ MENU DARK ----------------------- **/
@@ -550,7 +562,10 @@ header{
     cursor: pointer;
 }
 
-
+.portfolio-container-works
+{
+    min-height: 100vh !important;
+}
 
 
 .category_container{
@@ -616,24 +631,86 @@ header{
 
 /*********************************************** PAGE INSCRIPTION *******************************************************/
 
-.subscription-container{
-    background-color:white;
+.subscription-section{
+    background: #16181a;
+    margin-top: -100px;
 }
 
-.logo-account{
-    width: 100px;
+.container-subscription{
+    padding-top: 150px;
+    padding-bottom: 50px;
 }
 
-.espace-client-underline{
-    font-size: .9rem;
-    padding-top: 1rem;
+.subscription-title{
+    color:white;
+    padding-top: 2.5rem;
+    padding-right: 80px;
+    font-family: "Open Sans Light", 'sans-serif';
+    font-size: 3.5rem;
+}
+
+.subscription-avantages-list{
+    color:white;
+    list-style-type: none;
+    font-family: "Open Sans Light", "Open Sans", "sans-serif";
+    padding-left:0 !important;
+    margin-top: 4rem;
+    max-width: 30rem;
+}
+
+.text-avantage-item{
+    font-size:1.05rem;
     font-family: "Open Sans Light", "sans-serif";
-    font-style: italic;
 }
 
-.nav-item-account{
-    text-transform: none !important;
-    font-family: "Open Sans", 'sans-serif' !important;
+.image-avantage-item{
+    margin-bottom: .8rem;
+    margin-top: -8px;
+}
+
+.avantages-item{
+    font-size:1.1rem;
+    margin-top:1rem;
+    display: flex;
+}
+
+.network-icon{
+    width: 3.5rem;
+    margin-right: 2rem;
+}
+
+.text-bienvenue{
+    margin-bottom: 3rem;
+    font-family: "Open Sans Light", "sans-serif";
+}
+
+#registration_email, #registration_society, #registration_phone, #registration_hash, #registration_passwordConfirm {
+    margin-top:1rem;
+}
+
+.btn-create-account{
+    width: 100%;
+    padding-top: .7rem;
+    padding-bottom: .7rem;
+    background: #ff7a00;
+    color:white;
+    text-transform: uppercase;
+    font-family: "Open Sans", "sans-serif";
+}
+
+.btn-create-account:hover{
+    background: #d76f0f;
+}
+
+.connexion-link-for-register-form{
+    color:grey;
+    font-size: .9rem;
+    text-decoration: underline;
+}
+
+.connexion-link-for-register-form:hover{
+    color:#9a9a9a;
+    text-decoration: underline;
 }
 
 
@@ -658,6 +735,123 @@ header{
 
 .menu-nav-account{
     padding: 0 !important;
+}
+
+.subscription-container{
+    background-color:white;
+}
+
+.logo-account-section{
+    width: 100px;
+}
+
+.espace-client-underline{
+    font-size: .9rem;
+    padding-top: 1rem;
+    font-family: "Open Sans Light", "sans-serif";
+    font-style: italic;
+}
+
+.nav-item-account{
+    text-transform: none !important;
+    font-family: "Open Sans", 'sans-serif' !important;
+}
+
+
+
+/******************************************************** LOGIN PAGE *********************************************/
+
+.login-section{
+    background: linear-gradient(#1ebdb3, #107889, #184976);
+    height: 100vh;
+}
+
+.form-login-container{
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    border-radius: 1rem;
+}
+
+.form-login{
+    background: #1b1b1f;
+    border-radius: .8rem;
+    -webkit-box-shadow: 2px 4px 12px 2px rgba(0, 0, 0, 0.4);
+}
+
+.form-login-title{
+    color:white;
+    font-family: "Montserrat Light", "Open Sans", "sans-serif";
+    font-size: 2rem;
+    text-align: center;
+    padding-top:2rem;
+    padding-bottom:2rem;
+}
+
+.input-form-login{
+    background: none;
+    border:none;
+    border-bottom: 1.2px solid #adadad;
+    border-radius: 0;
+    padding-left: 0;
+    padding-bottom: .4rem;
+}
+
+.input-form-login:focus{
+    background: none;
+    border:none !important;
+    border-bottom: 1.2px solid #adadad;
+    box-shadow: none;
+}
+
+.login-page-form{
+    width: 80%;
+    margin-right : auto;
+    margin-left: auto;
+}
+
+.input-form-login::-webkit-input-placeholder{
+    color:#adadad;
+    font-size: 1.1rem;
+    font-family: "Open Sans Light", "Open Sans", "sans-serif";
+}
+
+.button-form-login{
+    margin-top: 2rem;
+    margin-bottom: 6rem;
+    text-align: center !important;
+    padding-left: 1rem !important;
+    width: 100% !important;
+    border: none;
+    border-radius: 7rem;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    padding-top: .7rem;
+    padding-bottom: .7rem;
+    font-family: "Open Sans Semibold";
+}
+
+.button-form-login:hover {
+    letter-spacing: 0 !important;
+}
+
+.dont-have-account-text{
+    color: #adadad;
+    font-size: .9rem;
+}
+
+.dont-have-account-text a {
+    color: #d8d8d8;
+}
+
+.dont-have-account-text a:hover{
+    text-decoration: none;
+    color:white;
+}
+
+.error-message-login{
+    background: none;
+    border:none;
+    color: #de0d2c;
 }
 
 
