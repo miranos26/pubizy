@@ -2,17 +2,63 @@
 
 namespace App\Controller;
 
+use App\Entity\Quotation;
+use App\Form\QuotationType;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class QuotationController extends AbstractController
 {
     /**
-     * @Route("/devis", name="quotation")
+     * @Route("/nouveau-projet", name="quotation")
      */
-    public function index()
+    public function index(Request $request, ObjectManager $manager)
     {
-        return $this->render('quotation/quotation_home.html.twig');
+        $quotation = new Quotation();
+        $form = $this->createForm(QuotationType::class, $quotation);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+
+            /** @var UploadedFile  $file */
+            $file = $form->get('reference')->getData();
+
+            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+
+            // Move the file to directory where images are stores
+            $file->move(
+                $this->getParameter('upload_directory'),
+                $fileName
+            );
+
+            $quotation->setReference($fileName);
+
+            $manager->persist($quotation);
+            $manager->flush();
+
+            return $this->redirectToRoute('quotation_success');
+        }
+
+        return $this->render('quotation/index.html.twig',[
+            'form' => $form->createView()
+        ]);
     }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/nouveau-projet/succes", name="quotation_success")
+     */
+    public function success(){
+        return $this->render('quotation/success.html.twig');
+    }
+
+    private function generateUniqueFileName()
+    {
+        return md5(uniqid());
+    }
+
 
 }

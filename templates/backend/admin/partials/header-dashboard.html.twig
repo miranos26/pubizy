@@ -1,0 +1,48 @@
+{% block nav %}
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-admin-bar p-0">
+        <div class="container-fluid">
+            <a href="#" class="btn btn-remove-border" id="menu-toggle"> <i class="fas fa-bars"></i> </a>
+            <a href="{{ path('admin_dashboard') }}" class="navbar-brand link-home-admin"> <img class="logo-mini" src="{{ asset("img/logo-pubizy.png") }}"> </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown mr-3">
+                        <a href="" class="nav-link dropdown-toggle welcome-text-admin" data-toggle="dropdown">
+                            <i class="fas fa-user"></i> Bienvenue {{ app.token.user.firstname }}
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-cog"></i> Paramètres
+                            </a>
+                            <a href="#" class="dropdown-item">
+                                <i class="fas fa-user-times"></i> Deconnexion
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item ml-4">
+                        <a href="#" class="icon-home-admin-link"> <i class="fas fa-envelope icon-admin-navbar"></i> <span class="badge badge-messages-admin"> 10 </span> </a>
+                    </li>
+                    <li class="nav-item mr-5">
+                        <a href="#" class="icon-home-admin-link"> <i class="fas fa-bell icon-admin-navbar ml-3"></i> <span class="badge badge-messages-admin"> 6 </span> </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Créations des messages flashes dispo dans la variable globale $app et message créés dans les controller-->
+    {% for label, messages in app.flashes %}
+        <div class="container">
+            <div class="alert alert-{{ label }}">
+                {% for message in messages %}
+                    <p>{{ message | raw }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}

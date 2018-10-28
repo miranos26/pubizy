@@ -1,3 +1,399 @@
+
+/******************** LOGIN FORM ADMIN *******************************/
+
+
+
+.connexion-title-login{
+    text-align : center;
+    font-family: "Open Sans", 'sans-serif';
+    color:white;
+    padding-top: 3rem;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.card-header-admin-login{
+    background: #1b1b1f;
+}
+
+.card-container-login-form{
+    border:none;
+}
+
+.background-admin-login{
+    background: linear-gradient(#457fca, #5691c8);
+    height: 100vh;
+}
+
+.card-login-bg{
+    background : #1b1b1f;
+    color: white;
+    border-radius: 1rem;
+    padding: 3rem 2rem;
+
+}
+
+.button-form-login{
+    margin-bottom: .7rem !important;
+}
+
+.come-back-to-home{
+    color: #079fa8;
+}
+
 .image-article-admin{
     width: 100px;
+}
+
+
+/************************************************* ADMIN DASHBOARD *******************************************/
+
+.logo-mini{
+    width: 90px;
+}
+
+.link-home-admin{
+    margin-left: 5rem !important;
+}
+
+.fa-bars{
+    color: #00d78a;
+    font-size: 1.5rem;
+    padding-top: 5px;
+    padding-left: 2rem;
+    outline: 0;
+}
+
+.welcome-text-admin{
+    text-transform: none !important;
+    color: #a9afbbd1;
+}
+
+.icon-admin-navbar{
+    color: #a9afbbd1;
+    padding-top: .6rem;
+}
+
+.badge-messages-admin{
+    color: white;
+    background: #de0d2c;
+    font-size: .6rem;
+    transform: translateY(-10px);
+
+}
+
+.btn-remove-border:active, .btn-remove-border:focus, .btn-remove-border:visited{
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+
+.bg-admin-bar{
+    background: #202940;
+}
+
+.header-table-commands{
+    border: none;
+    text-transform: uppercase;
+    font-family: "Montserrat Light", "Roboto", "sans-serif";
+    text-align: center;
+}
+
+.card-bg-orange{
+    background: linear-gradient(60deg,#f5700c,#ff9800);
+}
+
+.card-bg-purple{
+    background: linear-gradient(60deg,#7b1fa2,#913f9e);
+}
+
+.card-bg-red{
+    background: linear-gradient(60deg,#d22824,#da3a36);
+}
+
+.card-bg-green{
+    background: linear-gradient(60deg,#288c6c,#4ea752);
+}
+
+.card-bg-blue{
+    background: linear-gradient(60deg,#029eb1,#25b1c3);
+}
+
+.fast-actions{
+    margin: 2rem 0 2rem 0;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+.underline-gain{
+    color: #a9afbbd1;
+    font-size: .9rem;
+    text-align: center;
+}
+
+.month-gain{
+    font-size: 2.8rem;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0;
+    color: #00d78a;
+}
+
+
+.coin-icon i{
+    display: block;
+    font-size: 4rem;
+   text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border: 1px solid #8b92a9;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    color: #ff9800;
+
+}
+
+.btn-secondary{
+    background: #00d78a;
+    border: none;
+}
+
+.btn-secondary:hover{
+    background: #09bc7c;
+}
+
+.table{
+    text-align: center;
+}
+
+.dashboard th{
+    border: none !important;
+    background: #2c3650;
+}
+
+.dashboard td{
+    border-top: 1px solid #8b92a9;
+}
+
+.header-actions-rapides{
+    background: linear-gradient(60deg,#029eb1,#25b1c3);
+}
+
+
+/* Sidebar */
+
+#sidebar-wrapper{
+    z-index: 1;
+    position: absolute;
+    width: 0;
+    height: 100%;
+    overflow-y: hidden;
+    background: #1e263b;
+    transition : .5s ease-in-out;
+}
+
+.icon-home-admin-link:hover{
+    text-decoration: none;
+}
+
+.icon-home-admin-link:hover i {
+    color : #bababa;
+}
+
+/* Main content */
+
+.background-dashboard{
+    color: #ebebeb;
+    background: #1a2035;
+}
+
+#page-content-wrapper{
+    width: 100%;
+    position: absolute;
+    padding: 2.5rem;
+    transition : .5s ease-in-out;
+}
+
+
+#wrapper.menuDisplayed #sidebar-wrapper{
+    width: 250px;
+    transition : .5s ease-in-out;
+}
+
+#wrapper.menuDisplayed #page-content-wrapper{
+    padding-left: 250px;
+}
+
+/* Sidebar styling */
+.sidebar-nav{
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li{
+    text-indent: 2rem;
+    line-height: 4rem;
+    font-size: 1.1rem;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.sidebar-nav li i {
+    margin-right: .8rem;
+    display: inline;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #ddd;
+}
+
+.sidebar-nav li a:hover{
+    background: #05c27e;
+}
+
+
+.background-block-admin{
+    padding: 1rem 2rem;
+    background: #202940;
+    border-radius: 1rem;
+}
+
+.background-table{
+    background:#202940;
+    border-radius: 1rem;
+}
+
+.admin-nav-link{
+    width: 100% !important;
+}
+
+.add_project_btn{
+    background:#00d78a;
+    color: white;
+    margin-bottom: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.add_project_btn:hover{
+    color: white;
+    background:#09bc7c;
+}
+
+.card-portfolio-background{
+    background: #1a2035;
+    margin-top: 0;
+    padding: .5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-portfolio-background .fa-pencil-alt{
+    color: #09bc7c;
+}
+
+.card-portfolio-background .fa-times{
+    color: #d12024;
+}
+
+
+.card-portfolio-background a {
+    color:#bababa;
+    font-size: 1rem;
+}
+
+.card-portfolio-background a:hover{
+    color:white;
+    text-decoration: none;
+}
+
+.principalTitleQuotation{
+    font-family: "Open Sans Semibold", "sans-serif";
+    font-size: 3.5rem;
+    color: #09bc7c;
+}
+
+.containerTitleQuotation{
+    margin-bottom: 7rem;
+}
+
+.quotationSubtitle{
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.quotation-separator{
+    background: #bababa !important;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+.ref-quote-image{
+    width: 5rem;
+    height: 5rem;
+}
+
+.admin-quotation-title{
+    font-family: "Open Sans Semibold", "sans-serif";
+    font-size: 3.2rem;
+    margin-top: 4rem;
+    text-align: center;
+    margin-bottom: 7rem;
+}
+
+.quote-client-username{
+    font-size: 1.7rem;
+}
+
+.quotation-info-client-container p{
+    margin-bottom: .3rem;
+}
+
+
+.quotation-admin-delay{
+    color: #09bc7c;
+}
+
+.detail-quotation-admin{
+    margin-top: 6rem;
+}
+
+.quotation-admin-container{
+    background: #202940;
+    padding:3rem;
+}
+
+.adminQuotationProduct{
+    font-family: "Open Sans Semibold", "sans-serif";
+    font-size: 1.7rem;
+    color: #09bc7c;
+}
+
+.descriptionTitle{
+    font-family: "Open Sans Semibold", "sans-serif";
+    font-size: 1.2rem;
+    color: #09bc7c;
+}
+
+.title-newsletter-admin h1 {
+    font-family: 'Open Sans Semibold', 'sans-serif';
+    font-size: 3rem;
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+}
+
+.subtitle-newsletter-admin{
+    font-size: 1.6rem;
+}
+
+.image-article-admin{
+    width: 15rem;
 }

@@ -1,10 +1,14 @@
 
+// Account customer collapse
 
-// Lightbox portfolio init
+$('.account-item-header').click(function(){
+    $('.collapse').collapse('hide');
+});
 
-$(document).on('click', '[data-toggle="lightbox"]', function(event) {
-    event.preventDefault();
-    $(this).ekkoLightbox({
-        alwaysShowClose: false
-    });
+
+$(function(){
+   $(".account-item-header").click(function(){
+       $(".account-item-header").removeClass('activeItemDb');
+       $(this).addClass('activeItemDb');
+   });
 });

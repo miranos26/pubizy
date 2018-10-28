@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -48,6 +47,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez renseigner votre email")
      * @Assert\Email(message="Veuillez renseigner un email valide")
      */
     private $email;
@@ -105,15 +105,23 @@ class User implements UserInterface
      */
     private $userRoles;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isSuscribedNewsletter;
+
 
     public function __construct()
     {
         $this->orders = new ArrayCollection();
         $this->quotations = new ArrayCollection();
+        $this->newsletter = null;
 
         $this->setCreatedAt(new \DateTime());
         $this->setFidelityPoints(0);
         $this->userRoles = new ArrayCollection();
+
+        $this->setIsSuscribedNewsletter(true);
     }
 
     /**
@@ -385,6 +393,18 @@ class User implements UserInterface
             $this->userRoles->removeElement($userRole);
             $userRole->removeUser($this);
         }
+
+        return $this;
+    }
+
+    public function getIsSuscribedNewsletter(): ?bool
+    {
+        return $this->isSuscribedNewsletter;
+    }
+
+    public function setIsSuscribedNewsletter(?bool $isSuscribedNewsletter): self
+    {
+        $this->isSuscribedNewsletter = $isSuscribedNewsletter;
 
         return $this;
     }

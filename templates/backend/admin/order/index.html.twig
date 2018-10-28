@@ -1,0 +1,96 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %} Tableau de bord {% endblock %}
+
+{% block navigation %}
+    <!-- Include Navigation + Messages flash -->
+    {% include 'backend/admin/partials/header-dashboard.html.twig' %}
+
+{% endblock %}
+
+{% block body %}
+
+    <section class="dasboard-page-background">
+        <div id="wrapper">
+
+            <!-- Include Navigation Sidebar -->
+            {% include 'backend/admin/partials/sidebar-dashboard.html.twig' %}
+
+            <!-----------------------  Page content ------------------------------->
+
+            <div id="page-content-wrapper" class="dashboard">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <h1 class="mt-5 mb-3"> Liste des commandes </h1>
+
+                            <a href="{{ path('admin_order_create') }}" class="btn btn-primary mb-5"> Créer une nouvelle commande </a>
+
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th> # </th>
+                                    <th> Titre </th>
+                                    <th> Client </th>
+                                    <th> Email </th>
+                                    <th> Statut </th>
+                                    <th> Créé le </th>
+                                    <th> DLE </th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                {% for order in orders %}
+                                    <tr>
+                                        <td> {{ order.id }}</td>
+                                        <td> {{ order.name }}</td>
+                                        <td> {{ order.clientName }} </td>
+                                        <td> {{ order.clientEmail }} </td>
+                                        <td> {{ order.status }}</td>
+                                        <td> {{ order.createdAt | date('d-m-Y') }}</td>
+                                        <td> {{ order.deliveryAt | date('d-m-Y') }} </td>
+                                        <td>
+                                            <a href="{{ path('admin_order_edit', {'id':order.id}) }}" class="btn btn-primary"> <i class="fas fa-edit"></i></a>
+                                            <a href="{{ path('admin_order_delete', {'id':order.id}) }}" class="btn btn-danger"> <i class="fas fa-trash"></i></a>
+                                        </td>
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

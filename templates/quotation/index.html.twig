@@ -1,0 +1,233 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Agence de communication Drôme. Création de sites internet, graphisme, impression et publicité {% endblock %}
+
+{% form_theme form _self %}
+
+{% block navigation %} {% endblock %}
+
+{% block body %}
+
+    <section class="body-page">
+
+        <div class="container quotationFormContainer">
+            <div class="logo-pubizy-fond-noir text-center">
+                <a href="{{ path('home') }}">
+                    <img src="{{ asset('img/logo_pubizy_black.png') }}" alt="logo Pubizy Fond noir" class="logo-pubizy-quotation">
+                </a>
+            </div>
+
+
+            <!-- Multistep form -->
+
+            <h1 class="quotation-title"> Faites-nous part de votre projet ! <br> 5 min suffisent. </h1>
+
+            <ul id="progressbar">
+                <li class="active"></li>
+                <li></li>
+                <li> </li>
+            </ul>
+
+            {{ form_start(form) }}
+
+
+
+                <!-- Fieldset -->
+                <fieldset class=" form-container col-lg-6 col-md-8 mx-auto">
+                    <p class="step-quotation"> Étape <span class="step-number">1</span> sur 3 </p>
+
+                    <div class="row">
+                        <div class="col-md-6 pr-1">
+
+                            {{ form_label(form.name) }}
+                            {{ form_widget(form.name, {'id' : 'FormFirstname'}) }}
+                            <div class="alert alert-danger formValid d-none" id="EmptyFirstname">
+                                <p class="alert aler-danger"> Veuillez entrer votre nom </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 pl-1">
+                            {{ form_label(form.lastName) }}
+                            {{ form_widget(form.lastName, {'id' : 'FormLastname'}) }}
+                            <div class="alert alert-danger formValid d-none" id="EmptyLastname">
+                                <p class="alert aler-danger"> Veuillez entrer votre prénom </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ form_label(form.phone) }}
+                            {{ form_widget(form.phone, {'id' : 'FormPhone'}) }}
+                            <div class="alert alert-danger formValid d-none" id="EmptyPhone">
+                                <p class="alert aler-danger"> Entrer un numéro sur lequel nous pouvons vous contacter </p>
+                            </div>
+                            <div class="alert alert-danger formValid d-none" id="InvalidPhone">
+                                <p class="alert aler-danger"> Veuillez entrer un numéro de téléphone valide </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ form_label(form.email) }}
+                            {{ form_widget(form.email, {'id' : 'FormEmail'}) }}
+                            <div class="alert alert-danger formValid d-none" id="EmptyEmail">
+                                <p class="alert aler-danger"> Entrer un email sur lequel nous pouvons vous contacter </p>
+                            </div>
+                            <div class="alert alert-danger formValid d-none" id="InvalidEmail">
+                                <p class="alert aler-danger"> Veuillez entrer une adresse mail valide </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <input type="button" name="next" class="btn ask-button mt-5 mb-5 button-next-quotation next action-button-quotation text-center mx-auto" value="Suivant"/>
+                    </div>
+
+                </fieldset>
+
+
+            <!-- Fieldset -->
+            <fieldset class="form-container col-md-10 mt-5 mx-auto quote-products-container">
+
+
+                <p class="step-quotation"> Étape <span class="step-numer">2 </span> sur 3 </p>
+
+
+                <div class="col-md-10 mx-auto mb-5" id="product_category">
+                    {{ form_label(form.product, 'De quel type de produits avez-vous besoin ?') }}
+                    <p class="underline_quotation"> Faites votre choix et les produits par catégorie s'afficheront automatiquement dans l'option suivante. </p>
+                    {{ form_widget(form.product) }}
+                </div>
+
+                <div class="col-md-10 mx-auto mb-5 d-none subproduct-item" id="print_subproduct">
+
+                    {{ form_label(form.print_subproduct, 'Précisez votre besoin en supports de communication') }}
+                    {{ form_widget(form.print_subproduct) }}
+                </div>
+
+                <div class="col-md-10 mx-auto mb-5 d-none subproduct-item" id="web_subproduct">
+
+                    {{ form_label(form.web_subproduct, 'Précisez votre besoin en prestation Web') }}
+                    {{ form_widget(form.web_subproduct) }}
+                </div>
+
+                <div class="col-md-10 mx-auto mb-5 d-none subproduct-item" id="object_subproduct">
+
+                    {{ form_label(form.object_subproduct, 'Précisez votre besoin en Accéssoires Publicitaires') }}
+                    {{ form_widget(form.object_subproduct) }}
+                </div>
+
+
+                <div class="col-md-10 mx-auto mb-5 d-none subproduct-item" id="textile_subproduct">
+
+                    {{ form_label(form.textile_subproduct, 'Précisez votre besoin en Vêtements Publicitaires') }}
+                    {{ form_widget(form.textile_subproduct) }}
+                </div>
+
+                <div class="col-md-10 mx-auto mb-5 d-none subproduct-item" id="event_subproduct">
+
+                    {{ form_label(form.evenementiel_subproduct, 'Précisez votre besoin en Stand & Évenementiel') }}
+                    {{ form_widget(form.evenementiel_subproduct) }}
+                </div>
+
+                <div class="col-md-10 mx-auto mb-5 d-none subproduct-item" id="marketing_subproduct">
+
+                    {{ form_label(form.marketing_subproduct, 'Précisez votre besoin en Marketing Digital') }}
+                    {{ form_widget(form.marketing_subproduct) }}
+                </div>
+
+
+                <div class="col-md-10 mx-auto mb-5 d-none subproduct-item" id="motion_subproduct">
+
+                    {{ form_label(form.motion_subproduct, 'Précisez votre besoin en 3D & Vidéo') }}
+                    {{ form_widget(form.motion_subproduct) }}
+                </div>
+
+
+                <div class="col-md-10 mx-auto mb-5 d-none subproduct-item" id="infographic_subproduct">
+
+                    {{ form_label(form.infographic_subproduct, 'Précisez votre besoin en Infographie') }}
+                    {{ form_widget(form.infographic_subproduct) }}
+                </div>
+
+
+                <div class="col-md-10 mx-auto mb-5 d-none subproduct-item" id="exe_subproduct">
+
+                    {{ form_label(form.exe_subproduct, 'Précisez votre besoin en Execution Graphique') }}
+                    {{ form_widget(form.exe_subproduct) }}
+                </div>
+
+
+                <div class="col-md-10 mx-auto mb-5 d-none subproduct-item" id="ProductQuantity">
+
+                    {{ form_label(form.quantity, 'En quelle quantitée vous faut-il ce produit ?') }}
+                    {{ form_widget(form.quantity) }}
+                </div>
+
+
+                <div class="col-md-10 mx-auto mb-5">
+
+                    {{ form_label(form.delay, 'Quels sont vos délais ?') }}
+                    {{ form_widget(form.delay) }}
+                </div>
+
+            <div class="text-center mt-2 mb-5">
+                <input type="button" name="previous" class="btn ask-button previous action-button-quotation mx-0 px-0" value="Précédent"/>
+                <input type="button" name="next" class="btn ask-button next action-button-quotation action-button mx-0 px-0 mt-1" value="Suivant"/>
+            </div>
+
+            </fieldset>
+
+
+            <fieldset class="form-container col-md-10 mt-5 mx-auto quote-products-container">
+
+                <p class="step-quotation"> Étape <span class="step-numer">3 </span> sur 3 </p>
+
+                <div class="col-md-10 mx-auto mb-5">
+
+                    {{ form_label(form.activityArea, 'Quel est votre secteur d\'activité?') }}
+                    <p class="underline_quotation"> Cette information est importante pour mieux définir vos besoins </p>
+                    {{ form_widget(form.activityArea) }}
+                </div>
+
+
+
+                <div class="col-md-10 mx-auto mb-5">
+
+                    {{ form_label(form.description, 'Décrivez votre projet en quelques mots :') }}
+                    {{ form_widget(form.description) }}
+                </div>
+
+
+
+                <div class="col-md-10 mx-auto mb-5 reference-label">
+
+                    {{ form_label(form.reference, 'Voulez-vous joindre des fichiers de référence ?') }}
+                    <p class="underline_quotation"> Vous pouvez joindre un brief, une image ou tout autre fichier qui vous semble pertinent.</p>
+                    {{ form_widget(form.reference) }}
+                    <p class="filename"> Aucun fichier séléctionné </p>
+                </div>
+
+                <div class="text-center mt-3 mb-5">
+                    <input type="button" name="previous" class="btn ask-button previous action-button-quotation mx-0 px-0" value="Précédent"/>
+                    <button type="submit" value="Envoyer" class="btn ask-button next action-button-quotation action-button mx-0 px-0"> Envoyer </button>
+                </div>
+
+            </fieldset>
+
+
+            {{ form_end(form) }}
+
+
+        </div>
+
+    </section>
+
+{% endblock %}
+
+
+
+{% block javascripts %}
+  {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/quotation.js') }}"> </script>
+
+{% endblock %}

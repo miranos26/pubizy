@@ -66,6 +66,10 @@ p, li, a {
     background: #f39c11;
 }
 
+.btn-pub-header{
+    background: #f39c11;
+}
+
 .btn-pub-primary{
     background: #00d78a;
     color: white;
@@ -96,6 +100,23 @@ p, li, a {
     transition : .4s;
 }
 
+.navbar-toggler-icon{
+    z-index: 50;
+    color: white;
+}
+
+.navbar-menu-perso .nav-link{
+    color: white !important;
+}
+
+.navbar-menu-perso .nav-link:hover{
+    color: #f39c11 !important;
+}
+
+.navbar-nav:nth-last-child(1) .btn-pub-header:hover  {
+    color: white !important;
+}
+
 .ask-button {
     background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
     padding-left: 2rem;
@@ -110,7 +131,6 @@ p, li, a {
 }
 
 .ask-button:hover{
-    letter-spacing: .1rem;
     background-position: 100% 0;
     color:white;
 }
@@ -120,6 +140,9 @@ p, li, a {
     transform:translateX(0rem);
 }
 
+.expert-section-home{
+    margin-top: 5rem;
+}
 
 
 /** ---------------------- MAIN MENU ------------------------------------ **/
@@ -185,22 +208,21 @@ p, li, a {
 
 /** --------------------------  HOMEPAGE PARTICLES ------------------------------ **/
 header{
-    position: relative;
-    height: 86vh;
+  background: white;
 }
 
 #particles-js {
 
-    height:100vh;
+    height:800px;
     background: linear-gradient(#1ebdb3, #107889, #184976);
-    position: absolute;
+    position: relative;
     top: -120px;
     left: 0;
     width: 100%;
     z-index: 3;
-    -webkit-box-shadow: 0 1px 10px 10px #777;
-    -moz-box-shadow: 0 1px 10px 10px #777;
-    box-shadow: 0 1px 10px 10px #777;
+}
+
+.particles-js-canvas-el{
 }
 
 #Home-title{
@@ -213,7 +235,7 @@ header{
 }
 
 .Title-Homepage{
-    font-family: "Comfortaa", 'helvetica', 'sans-serif';
+    font-family: "Open Sans Semibold", "Montserrat SemiBold", "Helvetica", "sans-serif";
     font-size: 3.4rem;
 }
 
@@ -242,8 +264,8 @@ header{
 
 .phone{
     position: absolute;
-    top: 100px !important;
-    right:1%;
+    top: 8rem !important;
+    right: 0;
     color:white;
     pointer-events: none;
 }
@@ -278,20 +300,17 @@ header{
 }
 
 #services-section{
-    position:relative;
-    transform: translateY(-50px);
+    margin-top: 0 !important;
     background: white;
 }
 
 .ServicesTitle{
     font-family: "Open Sans", "helvetica", "sans-serif";
-    font-weight: 800;
+    font-weight: 700;
     text-align:center;
     font-size: 38px;
-    margin-top: 110px;
     margin-bottom: 20px;
     color: #333;
-    font-weight: bold;
 }
 
 .icon-services{
@@ -392,11 +411,100 @@ header{
     background-color:#16181a;
 }
 
+.logo-pubizy-mini{
+    width: 8rem;
+}
+
+.footer-text{
+    font-size: .9rem;
+    color: #888888;
+}
+
+.button-footer{
+    font-size: 1rem !important;
+    text-align: center;
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+.footer-title{
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-family: "Open Sans Semibold", "sans-serif";
+}
+
+.footer-subtitle{
+    text-decoration: underline;
+}
+
+.footer-link{
+    display: block;
+    margin-top: .8rem;
+}
+
+.footer-link:hover{
+    color: white;
+    text-decoration: none;
+}
+
+.paiement-icon{
+    width: 6rem;
+}
+
+.copyright-footer{
+    display: flex;
+    justify-content: center;
+}
+
+.social-icon-footer{
+    margin-left: 1rem;
+    margin-top: -10px;
+}
+
+.social-icon-footer .fa-facebook-f{
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid white;
+    padding: 1rem 1.25rem 1rem 1.25rem;
+    margin-left: .2rem;
+}
+
+.social-icon-footer .fa-twitter{
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid white;
+    padding: 1rem;
+    margin-left: .2rem;
+}
+
+.social-icon-footer .fa-linkedin-in{
+    display: inline-block;
+    border-radius: 50%;
+    border: 2px solid white;
+    padding: 1rem 1.1rem 1rem 1.1rem;
+    margin-left: .2rem;
+}
+
+.social-icon-footer i{
+    color:white;
+}
+
+.social-icon-footer a:hover{
+    color: white;
+    text-decoration: none !important;
+}
+
+.copyright-text{
+    color: #888888
+}
 
 
 
 
-/** ------------------------------------------------- PAGE SERVICES ------------------------------------------------------------- **/
+
+    /** ------------------------------------------------- PAGE SERVICES ------------------------------------------------------------- **/
 
 .page-header-services{
     height: 500px;
@@ -713,6 +821,15 @@ header{
     text-decoration: underline;
 }
 
+.subscription-section .form-check-label{
+    color: #dfdfdf;
+    font-size: .92rem;
+}
+
+.subscription-section .form-check{
+    margin-top: .5rem;
+}
+
 
 /**************************************** MON COMPTE ***********************************************************/
 
@@ -723,6 +840,12 @@ header{
 
 .firstname-account{
     color: #00d78a;
+}
+
+.account_edit_title{
+    font-family: 'Open Sans Semibold', 'sans-serif';
+    font-size: 2.6rem;
+    margin-top: 4rem;
 }
 
 .fa-shopping-cart{
@@ -757,7 +880,14 @@ header{
     font-family: "Open Sans", 'sans-serif' !important;
 }
 
+.img-contact-account{
+    width: 6rem;
+}
 
+.contact-container{
+    display: flex;
+    flex-direction: column;
+}
 
 /******************************************************** LOGIN PAGE *********************************************/
 
@@ -790,14 +920,30 @@ header{
 .input-form-login{
     background: none;
     border:none;
+    color: #adadad;
     border-bottom: 1.2px solid #adadad;
     border-radius: 0;
     padding-left: 0;
     padding-bottom: .4rem;
 }
 
-.input-form-login:focus{
-    background: none;
+
+.input-form-login:-webkit-autofill, .input-form-login:-webkit-autofill:hover, .input-form-login:-webkit-autofill:focus{
+    -webkit-text-fill-color: #adadad;
+    -webkit-box-shadow: 0 0 0 30px #1b1b1f inset;
+    color: #adadad;
+}
+
+
+.input-form-login:active{
+    background: #1b1b1f !important ;
+    border:none !important;
+    border-bottom: 1.2px solid #adadad;
+    box-shadow: none;
+}
+
+.input-form-login:focus-within{
+    background: #1b1b1f !important ;
     border:none !important;
     border-bottom: 1.2px solid #adadad;
     box-shadow: none;
@@ -817,7 +963,7 @@ header{
 
 .button-form-login{
     margin-top: 2rem;
-    margin-bottom: 6rem;
+    margin-bottom: .5rem;
     text-align: center !important;
     padding-left: 1rem !important;
     width: 100% !important;
@@ -827,7 +973,7 @@ header{
     font-size: 1.1rem;
     padding-top: .7rem;
     padding-bottom: .7rem;
-    font-family: "Open Sans Semibold";
+    font-family: "Open Sans Semibold", "sans-serif";
 }
 
 .button-form-login:hover {
@@ -843,7 +989,7 @@ header{
     color: #d8d8d8;
 }
 
-.dont-have-account-text a:hover{
+.dont-have-account-text a:hover, .forgot-password:hover{
     text-decoration: none;
     color:white;
 }
@@ -854,13 +1000,27 @@ header{
     color: #de0d2c;
 }
 
+.forgot-password{
+    font-size: .9rem;
+    display: block;
+    margin-bottom: 6rem;
+    color: #d8d8d8;
+}
 
 
 /******************************************** BLOG ************************************************************/
 
 .pageHeaderBlog{
-    height: 300px !important;
-    background: white;
+    height: 250px !important;
+    min-width: 1200px;
+    min-height: 250px !important;
+    background-image: url("../img/blog-bg.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    color: white;
+    background-position-y: -80px;
 }
 
 .Title-Homepage-blog{
@@ -869,8 +1029,489 @@ header{
     font-size: 2.7rem;
 }
 
+.articles-img{
+    margin-top: -80px;
+    height: 32rem;
+    width: 32rem;
+}
+
+.article-title{
+    font-family: "Open Sans Semibold", "Open Sans", "sans-serif";
+    font-size: 3rem;
+}
 
 
+
+
+
+/********************************************** ESPACE CLIENT *********************************************/
+
+.welcome-title-client{
+    margin-top: 3rem;
+    font-family: "Open Sans Semibold", "sans-serif";
+    font-size: 3.3rem;
+}
+
+.info-client-db{
+    background: white;
+    margin-bottom: 10rem;
+    border-bottom: 3px solid #1b1b1f;
+}
+
+
+.username-dashboard{
+    color: #9c3c7a;
+}
+
+.account-item-header{
+    width: 30% !important;
+    padding: .8rem .5rem .8rem .5rem;
+    margin-right: .8rem;
+    background: #acacac;
+    color:white;
+    border: none !important;
+}
+
+.account-item-header:focus, .account-item-header:active{
+    border:none !important;
+    outline: 0;
+}
+
+.activeItemDb{
+    background: white !important;
+    color: #9c3c7a !important;
+}
+
+.my-dashboard-title{
+    font-family: "Open Sans Semibold", "sans-serif";
+    font-size: 1.5rem;
+}
+
+.account-item-header:last-child{
+    margin-right: 0 !important;
+}
+
+.account-item-header:hover{
+    cursor:pointer;
+    border:none !important;
+}
+
+.content-container-client-dashboard{
+    background: white;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    border-bottom: 3px solid #1b1b1f;
+}
+
+.db-user-fullname{
+    font-family: "Open Sans Semibold", "sans-serif";
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+.user-info-db{
+    list-style-type: none;
+    font-size: 1rem;
+}
+
+.ul-info-dashb{
+    margin-left: 0;
+    padding-left: 0;
+    color: #454646;
+    text-align: center;
+}
+
+.db-user-society{
+    color: #535659;
+    font-family: "Open Sans","Montserrat", "sans-serif";
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: .6rem;
+}
+
+.icon-db-user{
+    color: #9c3c7a;
+}
+
+.hr-dashboard-client{
+    margin-top: 2rem;
+}
+
+.new-project-img{
+    width: 8rem;
+    margin: auto;
+    padding-top: 1rem;
+}
+
+.new-project-img-container{
+    margin-left: auto;
+    margin-right: auto;
+    background:#bbe8ed;
+    border-radius: 50%;
+    height: 10rem;
+    width: 10rem;
+}
+
+.user-profil-edit{
+    padding-bottom: 2rem !important;
+    font-size: .9rem;
+    font-family: "Open Sans Semibold", "sans-serif";
+}
+
+.user-profil-edit:hover{
+    text-decoration: none;
+}
+
+.tab{
+    overflow: hidden;
+}
+
+.fidelity-points{
+    background : white;
+    margin-top: 1rem;
+    padding-left: 1rem;
+    border-bottom: 3px solid #1b1b1f;
+}
+
+.fidelity-points h4{
+    padding-top: 1.5rem;
+}
+
+.fidelity-points h4{
+    padding-top: 2rem;
+}
+
+.remise-title-user1{
+    padding-top: 2.8rem !important;
+    font-size: .75rem;
+}
+
+.remise-title-user{
+    font-size: .75rem;
+}
+
+
+.container-fidelity{
+    border-right : 1px solid #7c848f;
+}
+
+.percent-reduc{
+    color: #9c3c7a;
+    font-family: "Open Sans Semibold", "sans-serif";
+    font-size: 1.4rem;
+}
+
+.third-part-remise-title{
+    font-size: 1rem;
+    padding-top: 1rem;
+    margin-left: -25px;
+}
+
+.color-price{
+    color: #9c3c7a;
+    font-weight: bold;
+}
+
+.less-than-for-reduc{
+    font-size: .9rem;
+    margin-left: -10px;
+}
+
+.progress-bar{
+    border-radius: 1rem;
+    width: 97%;
+    height: 2rem;
+    overflow: hidden;
+}
+
+.percent-montant{
+    text-align: left;
+    margin-left: -5px;
+}
+
+
+/** remise 0% **/
+
+.progress-bar-gradient0{
+    background: #ebedea;
+}
+
+
+/** Remise 5% **/
+
+.progress-bar-gradient5{
+    background: linear-gradient(to right, #00d78a 0%,#00d78a 25%,#ebedea 25%,#ebedea 25%,#ebedea 100%);
+}
+.progress-bar-gradient5 .percent0 {
+    color : white;
+}
+
+/** Remise 10% **/
+
+.progress-bar-gradient10{
+    background: linear-gradient(to right, #00d78a 0%,#00d78a 50%,#ebedea 50%,#ebedea 50%,#ebedea 100%);
+}
+.progress-bar-gradient10 .percent0, .progress-bar-gradient10 .percent5 {
+    color : white;
+}
+
+
+/** remise 15% **/
+
+.progress-bar-gradient15{
+    background: #00d78a;
+}
+.progress-bar-gradient15 .percent0, .progress-bar-gradient15 .percent5, .progress-bar-gradient15 .percent10, .progress-bar-gradient15 .percent15 {
+    color : white;
+}
+
+
+.section-progress-bar{
+    border-left: 1px solid #3c4858;
+    color: black;
+}
+
+.section-progress-bar:nth-child(1){
+    border: none !important;
+}
+
+
+
+/**************************** QUOTATION SECTION *********************************************/
+
+.logo-pubizy-quotation{
+    width: 16rem !important;
+    margin-top: 2rem;
+}
+
+.body-page{
+    background: url("../img/bg-quotation.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 100%;
+}
+
+.quotation-title{
+    text-align: center;
+    font-family: "Open Sans Semibold", "sans-serif";
+    color: #666666!important;
+    font-size: 2.3rem;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+}
+
+.step-quotation{
+    text-align:center;
+    font-family: "Montserrat SemiBold", "sans-serif";
+    font-size: 1.3rem;
+}
+
+.form-container{
+    border: 3px solid #3AA885;
+    border-radius: .8rem;
+    padding-top: 1.7rem;
+    background: white;
+    box-shadow: 0 2px 18px 0 rgba(0,0,0,0.4);
+    padding-left: 3rem;
+    padding-right: 3rem;
+
+}
+
+.form-container label{
+    margin-top: 1rem;
+    font-size: 1.6rem;
+    color: #666666;
+    font-family: "Open Sans Semibold", "sans-serif";
+}
+
+.form-container input{
+    height: 3rem;
+}
+
+.button-next-quotation{
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.underline_quotation{
+    font-family: "Open Sans", "sans-serif";
+    font-size: .87rem;
+    color: #818181;
+}
+
+.quote-products-container label{
+    color: #535b7c;
+}
+
+.quotationFormContainer select{
+    height: 3rem;
+}
+
+.quotationFormContainer textarea{
+    height: 10rem;
+}
+
+.reference-label label:nth-child(2){
+    font-size: 1rem !important;
+}
+
+#msform{
+    margin-bottom: 10rem;
+}
+
+#msform, #msform fieldset{
+    position: relative;
+}
+
+#msform fieldset{
+    position: relative !important;
+}
+
+
+#msform fieldset:not(:first-of-type){
+ display: none;
+}
+
+/* progressbar */
+
+
+
+#progressbar {
+    margin-bottom: 3.5rem;
+    overflow: hidden;
+    /*CSS counters to number the steps*/
+    counter-reset: step;
+}
+#progressbar li {
+    list-style-type: none;
+    color: #3c4858;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-family: "Open Sans", "sans-serif";
+    width: 33.33%;
+    float: left;
+    position: relative;
+}
+#progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 2rem;
+    line-height: 2rem;
+    display: block;
+    font-size: 1.3rem;
+    color: white;
+    background: #3c4858;
+    border-radius: 3px;
+    margin: 0 auto 5px auto;
+    padding-left: .6rem;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: #3c4858;
+    position: absolute;
+    left: -50%;
+    top: 1rem;
+    z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+    /*connector not needed before the first step*/
+    content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+    background: #27AE60;
+    color: white;
+}
+
+.formValid{
+    font-size:.8rem;
+    padding:0 !important;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.formValid p{
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.success-title-form{
+    font-family: 'Open Sans Semibold', 'sans-serif';
+    font-size: 3rem;
+}
+
+.success-subtitle{
+    color: #3c4858;
+    font-size: 1.25rem;
+    margin-top:1rem;
+}
+
+.icon-successPage{
+    font-size : 6rem;
+    color: #9c3c7a;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-icon-success{
+    margin-bottom: 5rem;
+}
+
+.section-icon-success p{
+    font-family: 'Open Sans Semibold', 'sans-serif';
+    color: #3c4858;
+}
+
+.backToHome{
+    margin-bottom: 7rem;
+}
+
+.backToHomeBtn{
+    font-size: 1.4rem;
+    border: none;
+}
+
+.action-button-quotation{
+    border : none !important;
+    min-width: 12rem;
+    height: 3rem !important;
+    text-align: center;
+}
+
+.action-button-quotation:hover{
+    letter-spacing: 0 !important;
+}
+
+#quotation_reference{
+    width: 5rem;
+    background: grey;
+    display: block !important;
+}
+
+
+label[for=quotation_reference]:after {
+    border: none;
+    background: #f39c11;
+    border-radius: .5rem;
+    color:white;
+    position: absolute;
+    left:0;
+    width: 5rem;
+}
+
+label[for=quotation_reference]{
+    border: none;
+    background:none;
+}
+
+.filename{
+    margin-left: 6rem;
+    margin-top: -17px;
+}
 
 
 

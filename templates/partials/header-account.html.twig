@@ -12,20 +12,15 @@
                         <a href="#" class="nav-link nav-item-account dropdown-toggle" data-toggle="dropdown" id="accountDropdownLink"> Bienvenue  <strong class="firstname-account"> {{ app.token.user.firstname | capitalize }} </strong> </a>
 
                         <div class="dropdown-menu dropdown-menu-left" aria-labelledby="accountDropdownLink">
-                            <a href="{{ path('account_index') }}" class="dropdown-item text-dark"> Mon compte </a>
+                            <a href="{{ path('account_index') }}" class="dropdown-item text-dark"> Tableau de bord </a>
                             <a href="{{ path('account_profile') }}" class="dropdown-item text-dark"> Modifier mon profil </a>
+                            <a href="{{ path('account_password') }}" class="dropdown-item text-dark"> Modifier mon mot de passe </a>
                             <div class="dropdown-divider"> </div>
                             <a href="{{ path('account_logout') }}" class="dropdown-item text-dark"> Déconnexion </a>
                         </div>
                     </li>
-                    <li class="nav-item mx-2">
-                        <a href="{{ path('account_logout') }}" class="nav-link nav-item-account"> Suivi </a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a href="{{ path('account_logout') }}" class="nav-link nav-item-account"> Gestion </a>
-                    </li>
                     <li class="nav-item order-nav-item mx-2">
-                        <a href="{{ path('home') }}" class="nav-link nav-item-account"> <i class="fas fa-shopping-cart"></i> Commander  </a>
+                        <a href="{{ path('quotation') }}" class="nav-link nav-item-account"> <i class="fas fa-plus"></i> Nouveau Projet  </a>
                     </li>
                 </ul>
             </div>

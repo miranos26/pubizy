@@ -1,0 +1,239 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %} Tableau de bord {% endblock %}
+
+{% block navigation %}
+    <!-- Include Navigation + Messages flash -->
+    {% include 'backend/admin/partials/header-dashboard.html.twig' %}
+
+{% endblock %}
+
+{% block body %}
+
+    <section class="dasboard-page-background">
+        <div id="wrapper">
+
+            <!-- Include Navigation Sidebar -->
+            {% include 'backend/admin/partials/sidebar-dashboard.html.twig' %}
+
+            <!-----------------------  Page content ------------------------------->
+
+            <div id="page-content-wrapper" class="dashboard">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <!-- Commandes en cours + Nouveaux messages (row) -->
+                            <section id="current-commands">
+                                <div class="container-fluid">
+                                    <div class="row">
+
+                                        <div class="col-md-8">
+                                            <div class="card background-table">
+                                                <div class="card-header header-table-commands card-bg-orange">
+                                                    <h4> Commandes en cours </h4>
+                                                </div>
+                                                <table class="table table-commands">
+                                                    <thead class="thead">
+                                                    <tr>
+                                                        <th> Titre </th>
+                                                        <th> Statut </th>
+                                                        <th> Client </th>
+                                                        <th> Début </th>
+                                                        <th> Fin </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {% for order in orders %}
+                                                    <tr>
+                                                        <td> {{ order.name }} </td>
+                                                        <td> {{ order.status }} </td>
+                                                        <td> {{ order.clientName }} </td>
+                                                        <td> {{ order.createdAt | date('d/m/Y') }} </td>
+                                                        <td> {{ order.deliveryAt | date('d/m/Y') }} </td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                    </tbody>
+                                                </table>
+                                                <div class="col-md-3 mb-3 mx-auto">
+                                                <a href="{{ path('admin_order') }}" class="btn card-bg-blue text-white"> Toutes les commandes </a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <div class="card background-table">
+                                                <div class="card-header header-table-commands card-bg-green">
+                                                    <h4> fiscalité </h4>
+                                                </div>
+                                                <div class="coin-icon">
+                                                    <i class="fas fa-coins"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="month-gain"> 2345 € </p>
+                                                    <p class="underline-gain"> ce mois-ci </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </section>
+
+
+                            <section>
+                                <div class="container-fluid mt-4">
+                                    <div class="row">
+
+                                        <div class="col-md-4">
+                                            <div class="card background-table">
+                                                <div class="card-header header-table-commands card-bg-purple">
+                                                    <h4> Nouveaux messages </h4>
+                                                </div>
+                                                <table class="table table-commands">
+                                                    <thead class="thead">
+                                                    <tr>
+                                                        <th> Nom </th>
+                                                        <th> Société </th>
+                                                        <th>  </th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                    <tr>
+                                                        <td> Smith </td>
+                                                        <td> Delivroo </td>
+                                                        <td>
+                                                            <a href="#" class="btn btn-secondary">
+                                                                <i class="fas fa-angle-double-right"> </i> Voir
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td> Facchin </td>
+                                                        <td> Roomco </td>
+                                                        <td>
+                                                            <a href="#" class="btn btn-secondary">
+                                                                <i class="fas fa-angle-double-right"> </i> Voir
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td> Dubois </td>
+                                                        <td> M-R Construction </td>
+                                                        <td>
+                                                            <a href="#" class="btn btn-secondary">
+                                                                <i class="fas fa-angle-double-right"> </i> Voir
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="col-md-8">
+                                            <div class="card background-table">
+                                                <div class="card-header header-table-commands card-bg-red">
+                                                    <h4> Demande de devis </h4>
+                                                </div>
+                                                <table class="table table-commands">
+                                                    <thead class="thead">
+                                                    <tr>
+                                                        <th> # </th>
+                                                        <th> Nom </th>
+                                                        <th> Produit </th>
+                                                        <th> Délai </th>
+                                                        <th> Date </th>
+                                                        <th> </th>
+                                                    </tr>
+                                                    </thead>
+
+                                                    <tbody>
+
+                                                    <tr>
+                                                        {% for quotation in quotations %}
+                                                    <tr>
+                                                        <td> {{ quotation.id }} </td>
+                                                        <td> {{ quotation.lastname }} </td>
+                                                        <td> {{ quotation.product}} </td>
+                                                        <td> {{ quotation.delay}} </td>
+                                                        <td> {{ quotation.createdAt | date('d/m/Y') }} </td>
+                                                        <td>
+                                                            <a href="{{ path('admin_quotation_show', {'id':quotation.id}) }}" class="btn btn-secondary">
+                                                                <i class="fas fa-angle-double-right"> </i> Détails
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    {% endfor %}
+
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </section>
+
+
+
+                            <!-- Actions -->
+                            <section class="py-4 mb-4">
+                                <div class="container-fluid">
+
+                                    <div class="col-md-12">
+                                        <div class="card background-table">
+                                            <div class="card-header header-table-commands card-bg-blue">
+                                                <h4> Actions rapides </h4>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3 fast-actions">
+                                                    <a href="" class="btn  btn-block card-bg-orange text-white">
+                                                        <i class="fas fa-plus"></i> Portfolio
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-3 fast-actions">
+                                                    <a href="{{ path('admin_post_create') }}" class="btn btn-success btn-block card-bg-green text-white">
+                                                        <i class="fas fa-plus"></i> Article
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-3 fast-actions">
+                                                    <a href="" class="btn btn-danger btn-block card-bg-red">
+                                                        <i class="fas fa-plus"></i> Catégorie
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-3 fast-actions">
+                                                    <a href="" class="btn btn-block card-bg-purple text-white">
+                                                        <i class="fas fa-plus"></i> Utilisateur
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </section>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}

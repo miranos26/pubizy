@@ -1,0 +1,45 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %} Tableau de bord {% endblock %}
+
+{% block navigation %}
+    <!-- Include Navigation + Messages flash -->
+    {% include 'backend/admin/partials/header-dashboard.html.twig' %}
+
+{% endblock %}
+
+{% block body %}
+
+    <section class="dasboard-page-background">
+        <div id="wrapper">
+
+            <!-- Include Navigation Sidebar -->
+            {% include 'backend/admin/partials/sidebar-dashboard.html.twig' %}
+
+            <!-----------------------  Page content ------------------------------->
+
+            <div id="page-content-wrapper" class="dashboard">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 m-auto">
+
+                            <h1 class="my-5 text-center"> Modification d'un utilisateur </h1>
+
+                            {{ form_start(form) }}
+                            {{ form_widget(form) }}
+                            <button type="submit" class="btn btn-primary mb-5"> Modifier </button>
+                            {{ form_end(form) }}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
+
+
+

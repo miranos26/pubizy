@@ -1,0 +1,133 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %} Tableau de bord {% endblock %}
+
+{% block navigation %}
+    <!-- Include Navigation + Messages flash -->
+    {% include 'backend/admin/partials/header-dashboard.html.twig' %}
+
+{% endblock %}
+
+{% block body %}
+
+    <section class="dasboard-page-background">
+        <div id="wrapper">
+
+            <!-- Include Navigation Sidebar -->
+            {% include 'backend/admin/partials/sidebar-dashboard.html.twig' %}
+
+            <!-----------------------  Page content ------------------------------->
+
+            <div id="page-content-wrapper" class="dashboard">
+                <div class="container quotation-admin-container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h2 class="admin-quotation-title"> Devis numéro {{ quotation.id }} </h2>
+
+                            <div class="row mt-5 header-container-quotation">
+                                <div class="col-md-4 quotation-info-client-container">
+                                    <p class="quote-client-username"> <strong> {{ quotation.name }} {{ quotation.lastName }} </strong> </p>
+                                    {% if quotation.user %}
+                                        <p> <em> Utilisateur inscrit </em> </p>
+                                    {% endif %}
+
+                                    <p class="quotation-activity-area"> {{ quotation.activityArea }}</p>
+                                    <p> {{ quotation.email }}</p>
+                                    <p> {{ quotation.phone }}</p>
+                                </div>
+                                <div class="col-md-8 text-right pt-5">
+                                    <p> Demande faite le {{ quotation.createdAt | localizeddate('long', 'short') }}</p>
+                                    <p> Délai pour ce projet : <strong class="quotation-admin-delay"> {{ quotation.delay }} </strong> </p>
+                                </div>
+                            </div>
+
+                            <div class="detail-quotation-admin">
+                                <p class="adminQuotationProduct"> {{ quotation.product }}</p>
+                                {% if quotation.product == 'Création de site internet' %}
+                                <p> Sous-catégorie : {{ quotation.webSubproduct }}</p>
+
+                                {% elseif quotation.product == 'Support de communication' %}
+                                <p> Sous-catégorie : {{ quotation.printSubproduct }}</p>
+                                <p> Quantité : {{ quotation.quantity }} </p>
+
+                                {% elseif quotation.product == 'Marketing digital' %}
+                                <p> Sous-catégorie : {{ quotation.marketingSubproduct }}</p>
+
+                                {% elseif quotation.product == 'Infographie' %}
+                                <p> Sous-catégorie : {{ quotation.infographicSubproduct }}</p>
+
+                                {% elseif quotation.product == '3D & Vidéo' %}
+                                <p> Sous-catégorie : {{ quotation.motionSubproduct }}</p>
+
+                                {% elseif quotation.product == 'Execution Graphique' %}
+                                <p> Sous-catégorie : {{ quotation.exeSubproduct }}</p>
+
+                                {% elseif quotation.product == 'Accessoires publicitaires' %}
+                                <p> Sous-catégorie : {{ quotation.objectSubproduct }}</p>
+                                <p> Quantité : {{ quotation.quantity }} </p>
+
+                                {% elseif quotation.product == 'Impression textile' %}
+                                <p> Sous-catégorie : {{ quotation.textile_Subproduct }}</p>
+                                <p> Quantité : {{ quotation.quantity }} </p>
+
+                                {% elseif quotation.product == 'Stand & evenementiel' %}
+                                <p> {{ quotation.evenementiel_Subproduct }}</p>
+                                <p> Quantité : {{ quotation.quantity }} </p>
+                            </div>
+
+                            {% endif %}
+                        </div>
+
+                        <div class="mt-5">
+                            <p class="descriptionTitle"> Description du projet : </p>
+                            <p> {{ quotation.description }}</p>
+                        </div>
+                        
+                        {% if quotation.reference %}
+
+
+                        
+                            <p class="mt-5"> Référence jointe au message : </p>
+                            <div class="ref-quote-image mb-5">
+
+                                <a href="{{ asset('uploads/usersfiles/' ~ quotation.reference) }}" download="fichier_de_reference">
+                                    <img src="{{ asset('uploads/usersfiles/' ~ quotation.reference) }}" alt="Image de l'article" class="image-article-admin">
+                                </a>
+
+                            </div>
+
+                        
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

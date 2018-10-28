@@ -33,6 +33,14 @@ class Newsletter
      */
     private $user;
 
+    private $choice;
+
+    public function __toString()
+    {
+        $this->choice = "non";
+        return (string) $this->choice;
+    }
+
 
     public function getId(): ?int
     {

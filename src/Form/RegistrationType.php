@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\User;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -24,6 +25,10 @@ class RegistrationType extends ApplicationType
             ->add('phone', TextType::class, $this->getConfiguration("Téléphone", "Téléphone"))
             ->add('hash', PasswordType::class, $this->getConfiguration("Password", "Mot de passe"))
             ->add('passwordConfirm', PasswordType::class, $this->getConfiguration("Confirmer le mot de passe", "Confirmer le mot de passe"))
+            ->add('isSuscribedNewsletter', CheckboxType::class, array(
+                'label' => 'Recevez les bons plans de Pubizy en vous inscrivant à notre newsletter',
+                'required' => false,
+            ))
         ;
     }
 

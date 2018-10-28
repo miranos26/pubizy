@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\OrderRepository")
+ * @ORM\Table(name="product_order")
  */
 class Order
 {
@@ -48,9 +49,15 @@ class Order
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="orders")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $user;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $price;
+
 
     public function getId(): ?int
     {
@@ -137,6 +144,18 @@ class Order
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getPrice(): ?float
+    {
+        return $this->price;
+    }
+
+    public function setPrice(?float $price): self
+    {
+        $this->price = $price;
 
         return $this;
     }

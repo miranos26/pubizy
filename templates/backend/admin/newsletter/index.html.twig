@@ -1,0 +1,127 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %} Tableau de bord {% endblock %}
+
+{% block navigation %}
+    <!-- Include Navigation + Messages flash -->
+    {% include 'backend/admin/partials/header-dashboard.html.twig' %}
+
+{% endblock %}
+
+{% block body %}
+
+    <section class="dasboard-page-background">
+        <div id="wrapper">
+
+            <!-- Include Navigation Sidebar -->
+            {% include 'backend/admin/partials/sidebar-dashboard.html.twig' %}
+
+            <!-----------------------  Page content ------------------------------->
+
+            <div id="page-content-wrapper" class="dashboard">
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12 text-center title-newsletter-admin">
+                            <h1> Inscription à la Newsletter </h1>
+                        </div>
+
+
+                        <div class="col-md-8">
+
+                            <h4 class="mt-5 mb-3 subtitle-newsletter-admin"> Avec un compte sur Pubizy </h4>
+
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th> Prénom </th>
+                                    <th> Nom</th>
+                                    <th> Société </th>
+                                    <th> Email </th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+
+                                {% for user in usersSuscribers %}
+                                    {% if user.isSuscribedNewsletter %}
+                                    <tr>
+                                        <td> {{ user.firstname }} </td>
+                                        <td> {{ user.lastname }}</td>
+                                        <td> {{ user.society }} </td>
+                                        <td> {{ user.email }} </td>
+                                        <td>  <a href="{{ path('admin_user_unsuscribe', {'id':user.id}) }}" class="btn btn-danger"> <i class="fas fa-trash"></i></a> </td>
+
+                                    </tr>
+                                    {% endif %}
+
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <h4 class="mt-5 mb-3 subtitle-newsletter-admin"> Sans compte Pubizy </h4>
+
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th> Email </th>
+                                    <th> Date d'inscription </th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+
+                                {% for user in newsletterSuscribers %}
+                                    <tr>
+                                        <td> {{ user.email }} </td>
+                                        <td> {{ user.createdAt | date('d/m/Y') }}</td>
+                                        <td>  <a href="{{ path('admin_newsletter_delete', {'id':user.id}) }}" class="btn btn-danger"> <i class="fas fa-trash"></i></a> </td>
+
+                                    </tr>
+
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

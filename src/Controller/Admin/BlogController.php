@@ -17,13 +17,12 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class BlogController
  * @package App\Controller\Admin
- * @Route("/admin/article", name="admin_blog_")
  */
 class BlogController extends AbstractController
 {
 
     /**
-     * @Route("/", name="admin_articles_index")
+     * @Route("/admin/article", name="admin_posts_index")
      * @return Response
      */
     public function index(PostRepository $repo)
@@ -37,7 +36,7 @@ class BlogController extends AbstractController
     /**
      * Permet de créer un article
      *
-     * @Route("/creer", name="create")
+     * @Route("/admin/article/new", name="admin_post_create")
      * @IsGranted("ROLE_ADMIN")
      * @return Response
      */
@@ -65,5 +64,54 @@ class BlogController extends AbstractController
         return $this->render('backend/admin/blog/create.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+
+    /**
+     * Permet d'afficher le formulaire d'édition
+     *
+     * @Route("/admin/article/{id}/modifier", name="admin_post_edit")
+     * @param Post $post
+     * @return Response
+     */
+    public function edit(Post $post, Request $request, ObjectManager $manager){
+        $form = $this->createForm(PostType::class, $post);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted() && $form->isValid()){
+            $manager->persist($post);
+            $manager->flush();
+
+            $this->addFlash(
+                'success',
+                "L'article <strong>{$post->getTitle()} </strong> a bien été enregistré ! "
+            );
+        }
+
+        return $this->render('backend/admin/blog/edit.html.twig', [
+            'post' => $post,
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * Permet de supprimer un article
+     *
+     * @Route("/admin/article/{id}/supprimer", name="admin_post_delete")
+     * @IsGranted("ROLE_ADMIN")
+     * @param Post $post
+     * @param ObjectManager $manager
+     */
+    public function delete(Post $post, ObjectManager $manager){
+        $manager->remove($post);
+        $manager->flush();
+
+        $this->addFlash(
+            'success',
+            "L'article a bien été supprimé"
+        );
+
+        return $this->redirectToRoute('admin_posts_index');
     }
 }

@@ -1,0 +1,56 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %} Modification de l'article {{ post.id }} {% endblock %}
+
+{% form_theme form _self %}
+{% block body %}
+
+
+
+        <div class="container">
+            <h1> Modification de l'article {{ post.title }} </h1>
+
+            <!-- Creer la balise form seulement et la méthode en Post -->
+            {{ form_start(form) }}
+
+            <div class="row">
+                <div class="col">
+                    <div class="card bg-light">
+                        <div class="card-header">
+                            <h4 class="card-title"> Corriger l'article ? </h4>
+                        </div>
+                        <div class="card-body">
+                            {{ form_widget(form) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col"></div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary"> Modifier l'article </button>
+
+            {{ form_end(form) }}
+
+        </div>
+
+
+{% endblock %}
+
+
+{% block _ad_images_widget %}
+    {{ form_widget(form) }}
+{% endblock %}
+
+{% block _ad_images_entry_widget %}
+    <div class="row">
+        <div class="col-4">
+            {% if value %}
+            <img src="{{ value.url }}" alt="" class="img-fluid">
+            {% endif %}
+        </div>
+        <div class="col-6">
+            {{ form_row() }}
+        </div>
+    </div>
+{% endblock %}

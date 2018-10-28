@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Agence de communication Drôme. Création de sites internet, graphisme, impression et publicité {% endblock %}
+
+{% block navigation %}
+{% endblock %}
+
+
+{% block body %}
+
+    <section class="body-page">
+
+        <div class="container quotationFormContainer">
+            <div class="logo-pubizy-fond-noir text-center">
+                <a href="{{ path('home') }}">
+                    <img src="{{ asset('img/logo_pubizy_black.png') }}" alt="logo Pubizy Fond noir" class="logo-pubizy-quotation">
+                </a>
+            </div>
+
+            <div class="text-center mt-4">
+            <h1 class="success-title-form"> A nous de jouer </h1>
+            <p class="success-subtitle"> Les étapes suivantes : </p>
+            </div>
+
+            <section class="d-flex mt-4 col-md-10 mx-auto text-center section-icon-success">
+                <div class="col-md-4">
+                    <i class="far fa-clock icon-successPage"></i>
+                    <p> Nous vous contactons pour votre devis sous 3h </p>
+                </div>
+
+                <div class="col-md-4">
+                    <i class="far fa-comment icon-successPage"></i>
+                    <p> Apportez-nous quelques précisions sur votre projet </p>
+                </div>
+
+                <div class="col-md-4">
+                    <i class="far fa-thumbs-up icon-successPage"></i>
+                    <p> Nous faisons notre maximum pour vous satisfaire </p>
+                </div>
+            </section>
+
+            <div class="text-center backToHome">
+                <a href="{{ path('home') }}" class="btn gradient-primary text-white backToHomeBtn"> Retour à l'accueil </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/quotation.js') }}"> </script>
+{% endblock %}

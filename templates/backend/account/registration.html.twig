@@ -46,18 +46,30 @@
                 {{ form_start(form) }}
                 <div class="row">
                     <div class="col-md-6">
+                        {{ form_errors(form.firstname) }}
                         {{ form_widget(form.firstname) }}
                     </div>
                     <div class="col-md-6">
+                        {{ form_errors(form.lastname) }}
                         {{ form_widget(form.lastname) }}
                     </div>
                 </div>
-
+                {{ form_errors(form.email) }}
                 {{ form_widget(form.email) }}
+
+
                 {{ form_widget(form.society) }}
+
+                {{ form_errors(form.society) }}
                 {{ form_widget(form.phone) }}
+
+                {{ form_errors(form.hash) }}
                 {{ form_widget(form.hash) }}
+
+                {{ form_errors(form.passwordConfirm) }}
                 {{ form_widget(form.passwordConfirm) }}
+
+                {{ form_widget(form.isSuscribedNewsletter, {'attr':{'class':'newsletterSubscription'}}) }}
 
                 {{ form_widget(form) }}
 

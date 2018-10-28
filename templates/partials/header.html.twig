@@ -1,10 +1,13 @@
 {% block nav %}
-<nav class="navbar navbar-expand-sm navbar-menu-perso">
+
+<nav class="navbar navbar-expand-sm navbar-light navbar-menu-perso">
     <div class="container">
-        <a href="{{ path('home') }}" class="navbar-brand"> <img class="logo" src="{{ asset("img/logo-pubizy.png") }}"> </a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="navbarCollapse">
+
+        <a href="{{ path('home') }}" class="navbar-brand link-home-admin"> <img class="logo" src="{{ asset("img/logo-pubizy.png") }}"> </a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse pt-3" id="navbarCollapse">
             <ul class="navbar-nav ml-auto main-menu">
                 <li class="nav-item active">
@@ -33,7 +36,7 @@
                     <a href="{{ path('blog') }}" class="nav-link"> Blog </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ path('quotation') }}" class="nav-link btn btn-pub-primary ml-3"> Faire une demande </a>
+                    <a href="{{ path('quotation') }}" class="nav-link btn btn-pub-header ml-3"> Faire une demande </a>
                 </li>
             </ul>
         </div>

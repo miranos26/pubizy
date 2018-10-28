@@ -1,0 +1,98 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %} Tableau de bord {% endblock %}
+
+{% block navigation %}
+    <!-- Include Navigation + Messages flash -->
+    {% include 'backend/admin/partials/header-dashboard.html.twig' %}
+
+{% endblock %}
+
+{% block body %}
+
+    <section class="dasboard-page-background">
+        <div id="wrapper">
+
+            <!-- Include Navigation Sidebar -->
+            {% include 'backend/admin/partials/sidebar-dashboard.html.twig' %}
+
+            <!-----------------------  Page content ------------------------------->
+
+            <div id="page-content-wrapper" class="dashboard">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <h1 class="mt-5 mb-3"> Liste des utilisateurs </h1>
+
+                            <a href="{{ path('admin_user_create') }}" class="btn btn-primary mb-5"> Ajouter un utilisateur </a>
+
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th> Prénom </th>
+                                        <th> Nom</th>
+                                        <th> Société </th>
+                                        <th> Email </th>
+                                        <th> Tél. </th>
+                                        <th> Créé le </th>
+                                        <th> Nb. achats </th>
+                                        <th> Pts. fidélité </th>
+                                        <th></th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    {% for user in users %}
+                                        <tr>
+                                            <td> {{ user.firstname }}</td>
+                                            <td> {{ user.lastname }}</td>
+                                            <td> {{ user.society }} </td>
+                                            <td> {{ user.email}} </td>
+                                            <td> {{ user.phone }}</td>
+                                            <td> {{ user.createdAt | date('d-m-Y') }}</td>
+                                            <td> 0 </td>
+                                            <td> {{ user.fidelityPoints }}</td>
+                                            <td>
+                                                <a href="{{ path('admin_user_edit', {'id':user.id}) }}" class="btn btn-primary"> <i class="fas fa-edit"></i></a>
+                                                <a href="{{ path('admin_user_delete', {'id':user.id}) }}" class="btn btn-danger"> <i class="fas fa-trash"></i></a>
+                                            </td>
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

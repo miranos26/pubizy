@@ -12,14 +12,40 @@
 
 
     <div class="container">
-        <h1> Modifier mon profil </h1>
+        <div class="col-md-12 text-center mb-5">
+            <h1 class="account_edit_title"> Modifier mon profil </h1>
+        </div>
 
         {{ form_start(form) }}
-        {{ form_widget(form) }}
 
-        <button type="submit" class="btn btn-primary"> Enregistrer les modifications </button>
+        <div class="col-md-6 mx-auto">
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form_row(form.firstname) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.lastname) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    {{ form_row(form.email) }}
+                </div>
+                <div class="col-md-6">
+                    {{ form_row(form.phone) }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    {{ form_row(form.society) }}
+                </div>
+            </div>
+            <div class="col-md-12 text-center mt-4 mb-5">
+                <button type="submit" class="btn btn-skills"> Enregistrer </button>
+            </div>
+        </div>
 
-        {{ form_end(form) }}
+    {{ form_end(form) }}
     </div>
 
 {% endblock %}

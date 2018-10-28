@@ -1,0 +1,176 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %} Tableau de bord {% endblock %}
+
+{% block navigation %}
+    <!-- Include Navigation + Messages flash -->
+    {% include 'backend/admin/partials/header-dashboard.html.twig' %}
+
+{% endblock %}
+
+{% block body %}
+
+    <section class="dasboard-page-background">
+        <div id="wrapper">
+
+            <!-- Include Navigation Sidebar -->
+            {% include 'backend/admin/partials/sidebar-dashboard.html.twig' %}
+
+            <!-----------------------  Page content ------------------------------->
+
+            <div id="page-content-wrapper" class="dashboard">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="text-center containerTitleQuotation">
+                                <h1 class="mt-5 mb-3 principalTitleQuotation"> Liste des devis </h1>
+                            </div>
+
+
+
+                            <h2 class="quotationSubtitle"> Nouvelles demande de devis </h2>
+
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th> # </th>
+                                    <th> Client </th>
+                                    <th> Email </th>
+                                    <th> Telephone </th>
+                                    <th> Produit </th>
+                                    <th> Date de création </th>
+                                    <th> Délai </th>
+                                    <th> Etat </th>
+                                    <th> </th>
+                                    <th> </th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                {% for quotation in quotations %}
+                                    {% if quotation.isNew %}
+                                        <tr>
+                                            <td> {{ quotation.id }}</td>
+                                            <td> {{ quotation.name }} {{ quotation.lastName }}</td>
+                                            <td> {{ quotation.email }} </td>
+                                            <td> {{ quotation.phone }} </td>
+                                            <td> {{ quotation.product }}</td>
+                                            <td> {{ quotation.createdAt| date('d-m-Y') }}</td>
+                                            <td> {{ quotation.delay }} </td>
+                                            <td>
+                                                {% if quotation.isAccepted %}
+                                                    Accepté
+                                                {% elseif quotation.isAccepted is null %}
+                                                    En attente
+                                                {% else %}
+                                                    Refusé
+                                                {% endif %}
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('admin_quotation_accepted', {'id':quotation.id}) }}" class="btn btn-success"> <i class="fas fa-check"></i> </a>
+                                                <a href="{{ path('admin_quotation_waiting', {'id':quotation.id}) }}" class="btn btn-secondary"> <i class="fas fa-pause"></i> </a>
+                                                <a href="{{ path('admin_quotation_refused', {'id':quotation.id}) }}" class="btn btn-warning"> <i class="fas fa-times"></i> </a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('admin_quotation_show', {'id':quotation.id}) }}" class="btn btn-primary"> <i class="far fa-eye"></i> </a>
+                                                <a href="{{ path('admin_quotation_delete', {'id':quotation.id}) }}" class="btn btn-danger"> <i class="fas fa-trash"></i></a>
+                                            </td>
+
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                            <hr class="quotation-separator">
+
+
+                            <h2 class="quotationSubtitle"> Devis archivés </h2>
+
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th> # </th>
+                                    <th> Client </th>
+                                    <th> Email </th>
+                                    <th> Telephone </th>
+                                    <th> Produit </th>
+                                    <th> Date de création </th>
+                                    <th> Délai </th>
+                                    <th> Etat </th>
+                                    <th> </th>
+                                    <th> </th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                {% for quotation in quotations %}
+                                {% if not quotation.isNew %}
+                                    <tr>
+                                        <td> {{ quotation.id }}</td>
+                                        <td> {{ quotation.name }} {{ quotation.lastName }}</td>
+                                        <td> {{ quotation.email }} </td>
+                                        <td> {{ quotation.phone }} </td>
+                                        <td> {{ quotation.product }}</td>
+                                        <td> {{ quotation.createdAt| date('d-m-Y') }}</td>
+                                        <td> {{ quotation.delay }} </td>
+                                        <td>
+                                            {% if quotation.isAccepted %}
+                                                Accepté
+                                            {% elseif quotation.isAccepted is null %}
+                                                En attente
+                                            {% else %}
+                                                Refusé
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <a href="{{ path('admin_quotation_accepted', {'id':quotation.id}) }}" class="btn btn-success"> <i class="fas fa-check"></i> </a>
+                                            <a href="{{ path('admin_quotation_waiting', {'id':quotation.id}) }}" class="btn btn-secondary"> <i class="fas fa-pause"></i> </a>
+                                            <a href="{{ path('admin_quotation_refused', {'id':quotation.id}) }}" class="btn btn-warning"> <i class="fas fa-times"></i> </a>
+                                        </td>
+                                        <td>
+                                            <a href="{{ path('admin_quotation_show', {'id':quotation.id}) }}" class="btn btn-primary"> <i class="far fa-eye"></i> </a>
+                                            <a href="{{ path('admin_quotation_delete', {'id':quotation.id}) }}" class="btn btn-danger"> <i class="fas fa-trash"></i></a>
+                                        </td>
+
+                                    </tr>
+                                {% endif %}
+                            {% endfor %}
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,11 +1,80 @@
 {% block footer %}
     <footer id="main-footer" class="py-5 text-white">
         <div class="container">
+
             <div class="row">
-                <div class="col">
-                    <p> Copyright &copy; <span id="year"> </span> Pubizy </p>
+                <div class="col-md-6">
+                    <div class="text-center">
+                        <img src="{{ asset('img/logo-pubizy.png') }}" alt="Pubizy, agence de communication globale dans la Drôme" class="logo-pubizy-mini">
+                    </div>
+                    <div class="mx-auto text-center">
+                        <p class="footer-text mt-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis consequuntur illo mollitia
+                            neque quas quasi reprehenderit totam vero consectetur adipisicing elit </p>
+                    </div>
+                    <div class="text-center">
+                        <a href="{{ path('quotation') }}" class="btn btn-lg mt-2 button-home ask-button button-footer"> FAIRE UNE DEMANDE  </a>
+                    </div>
                 </div>
+
+                <div class="col-md-6 mx-auto text-center">
+                    <h6 class="footer-title"> CLIENTS </h6>
+                    <div class="row">
+                        <div class="col-md-6">
+
+                            <a href="{{ path('services') }}" class="footer-text footer-link"> Services </a>
+                            <a href="{{ path('works') }}" class="footer-text footer-link"> Réalisations </a>
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <a href="{{ path('account_login') }}" class="footer-text footer-link"> Connexion </a>
+                            <a href="{{ path('account_register') }}" class="footer-text footer-link"> Enregistrement </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4 text-center">
+                <div class="col-md-3">
+                    <h6 class="footer-title"> Pubizy </h6>
+                    <p  class="footer-text"> ZA Clavon, 26230 Valaurie  </p>
+                    <p class="footer-text footer-subtitle"> Horaires d'ouverture : </p>
+                    <p class="footer-text">  Du Lundi au Vendredi <br> de 9h00 à 19h00 </p>
+                    <p class="footer-text footer-subtitle"> Contact : </p>
+                    <p class="footer-text"> 06.59.91.88.57 </p>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="footer-title"> A Propos </h6>
+                    <a href="{{ path('blog') }}"  class="footer-text footer-link"> Blog  </a>
+                    <a href="#" class="footer-text footer-link"> Recrutement </a>
+                    <a href="#" class="footer-text footer-link">  Contact</a>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="footer-title"> Droit </h6>
+                    <a href="#" class="footer-text footer-link"> Mentions légales </a>
+                    <a href="#" class="footer-text footer-link"> CGU </a>
+                    <a href="#" class="footer-text footer-link">  CGV </a>
+                </div>
+
+                <div class="col-md-3">
+                    <h6 class="footer-title"> Paiement </h6>
+                    <img src="{{ asset('img/paiement-icon.png') }}" alt="Moyens de paiement acceptés" class="paiement-icon">
+                </div>
+            </div>
+
+            <div class="copyright-footer text-center mx-auto mt-5">
+                <p class="copyright-text"> &copy; <span id="year"> </span> Pubizy.fr </p>
+                <div class="social-icon-footer">
+                    <a href="#"> <i class="fab fa-facebook-f"></i> </a>
+                    <a href="#"> <i class="fab fa-twitter"></i> </a>
+                    <a href="#"> <i class="fab fa-linkedin-in"></i> </a>
+                </div>
+
             </div>
         </div>
     </footer>
+
 {% endblock %}

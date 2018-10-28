@@ -42,11 +42,6 @@ class Quotation
     private $product;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $subproduct;
-
-    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $quantity;
@@ -62,7 +57,7 @@ class Quotation
     private $activityArea;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
@@ -80,6 +75,69 @@ class Quotation
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="quotations")
      */
     private $user;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $printSubproduct;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $objectSubproduct;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $webSubproduct;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $marketingSubproduct;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $motionSubproduct;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $infographicSubproduct;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $exeSubproduct;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $textile_subproduct;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $evenementiel_subproduct;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isNew;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $isAccepted;
+
+
+    public function __construct()
+    {
+
+        $this->createdAt = new \DateTime();
+        $this->isNew = true;
+    }
 
     public function getId(): ?int
     {
@@ -146,18 +204,6 @@ class Quotation
         return $this;
     }
 
-    public function getSubproduct(): ?string
-    {
-        return $this->subproduct;
-    }
-
-    public function setSubproduct(?string $subproduct): self
-    {
-        $this->subproduct = $subproduct;
-
-        return $this;
-    }
-
     public function getQuantity(): ?int
     {
         return $this->quantity;
@@ -206,7 +252,7 @@ class Quotation
         return $this;
     }
 
-    public function getReference(): ?string
+    public function getReference(): ? string
     {
         return $this->reference;
     }
@@ -238,6 +284,138 @@ class Quotation
     public function setUser(?User $user): self
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getPrintSubproduct(): ?string
+    {
+        return $this->printSubproduct;
+    }
+
+    public function setPrintSubproduct(string $printSubproduct): self
+    {
+        $this->printSubproduct = $printSubproduct;
+
+        return $this;
+    }
+
+    public function getObjectSubproduct(): ?string
+    {
+        return $this->objectSubproduct;
+    }
+
+    public function setObjectSubproduct(?string $objectSubproduct): self
+    {
+        $this->objectSubproduct = $objectSubproduct;
+
+        return $this;
+    }
+
+    public function getWebSubproduct(): ?string
+    {
+        return $this->webSubproduct;
+    }
+
+    public function setWebSubproduct(?string $webSubproduct): self
+    {
+        $this->webSubproduct = $webSubproduct;
+
+        return $this;
+    }
+
+    public function getMarketingSubproduct(): ?string
+    {
+        return $this->marketingSubproduct;
+    }
+
+    public function setMarketingSubproduct(?string $marketingSubproduct): self
+    {
+        $this->marketingSubproduct = $marketingSubproduct;
+
+        return $this;
+    }
+
+    public function getMotionSubproduct(): ?string
+    {
+        return $this->motionSubproduct;
+    }
+
+    public function setMotionSubproduct(?string $motionSubproduct): self
+    {
+        $this->motionSubproduct = $motionSubproduct;
+
+        return $this;
+    }
+
+    public function getInfographicSubproduct(): ?string
+    {
+        return $this->infographicSubproduct;
+    }
+
+    public function setInfographicSubproduct(?string $infographicSubproduct): self
+    {
+        $this->infographicSubproduct = $infographicSubproduct;
+
+        return $this;
+    }
+
+    public function getExeSubproduct(): ?string
+    {
+        return $this->exeSubproduct;
+    }
+
+    public function setExeSubproduct(?string $exeSubproduct): self
+    {
+        $this->exeSubproduct = $exeSubproduct;
+
+        return $this;
+    }
+
+    public function getTextileSubproduct(): ?string
+    {
+        return $this->textile_subproduct;
+    }
+
+    public function setTextileSubproduct(?string $textile_subproduct): self
+    {
+        $this->textile_subproduct = $textile_subproduct;
+
+        return $this;
+    }
+
+    public function getEvenementielSubproduct(): ?string
+    {
+        return $this->evenementiel_subproduct;
+    }
+
+    public function setEvenementielSubproduct(?string $evenementiel_subproduct): self
+    {
+        $this->evenementiel_subproduct = $evenementiel_subproduct;
+
+        return $this;
+    }
+
+    public function getIsNew(): ?bool
+    {
+        return $this->isNew;
+    }
+
+    public function setIsNew(bool $isNew): self
+    {
+        $this->isNew = $isNew;
+
+        return $this;
+    }
+
+    public function getIsAccepted(): ?bool
+    {
+        return $this->isAccepted;
+    }
+
+    public function setIsAccepted(?bool $isAccepted): self
+    {
+        $this->isAccepted = $isAccepted;
 
         return $this;
     }

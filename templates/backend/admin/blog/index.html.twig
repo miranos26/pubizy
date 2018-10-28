@@ -1,44 +1,93 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %} Administration des articles {% endblock %}
+{% block title %} Tableau de bord {% endblock %}
 
+{% block navigation %}
+    <!-- Include Navigation + Messages flash -->
+    {% include 'backend/admin/partials/header-dashboard.html.twig' %}
+
+{% endblock %}
 
 {% block body %}
 
-    <div class="container-fluid">
-        <h1 class="my-5"> Créer un nouvel article </h1>
-    <table class="table-hover">
-        <thead>
-        <tr>
-            <th> Id </th>
-            <th> Titre </th>
-            <th> Slug </th>
-            <th> Auteur </th>
-            <th> Contenu </th>
-            <th> Image </th>
-            <th> Actions </th>
-        </tr>
-        </thead>
-        
-        <tbody>
-        {% for post in posts %}
-            <tr>
-                <td> {{ post.id }}</td>
-                <td> {{ post.title }}</td>
-                <td> {{ post.slug }} </td>
-                <td> {{ post.author }} </td>
-                <td> {{ post.excerpt }}</td>
-                <td> <img src="{{ post.image }}" alt="Image de l'article {{ post.title }}" class="image-article-admin"> </td>
-                <td>
-                    <a href="#" class="btn btn-primary"> <i class="fas fa-edit"></i></a>
-                    <a href="#" class="btn btn-danger"> <i class="fas fa-trash"></i></a>
-                </td>
+    <section class="dasboard-page-background">
+        <div id="wrapper">
 
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            <!-- Include Navigation Sidebar -->
+            {% include 'backend/admin/partials/sidebar-dashboard.html.twig' %}
 
-    </div>
+            <!-----------------------  Page content ------------------------------->
+
+            <div id="page-content-wrapper" class="dashboard">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+
+                            <div class="container-fluid">
+                                <h1 class="my-5"> Créer un nouvel article </h1>
+                                <table class="table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th> Titre </th>
+                                        <th> Auteur </th>
+                                        <th> Contenu </th>
+                                        <th> Image </th>
+                                        <th> </th>
+                                        <th> </th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    {% for post in posts %}
+                                        <tr>
+                                            <td> {{ post.title }}</td>
+                                            <td> {{ post.author }} </td>
+                                            <td> {{ post.excerpt }}</td>
+                                            <td> <img src="{{ post.image }}" alt="Image de l'article {{ post.title }}" class="image-article-admin"> </td>
+                                            <td>
+                                                <a href="{{ path('admin_post_edit', {'id':post.id}) }}" class="btn btn-primary"> <i class="fas fa-edit"></i></a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('admin_post_delete', {'id':post.id}) }}" class="btn btn-danger"> <i class="fas fa-trash"></i></a>
+                                            </td>
+
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
 
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

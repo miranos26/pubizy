@@ -15,3 +15,12 @@ $(document).ready(function(){
        }
    });
 });
+
+// Lightbox portfolio init
+
+$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+    event.preventDefault();
+    $(this).ekkoLightbox({
+        alwaysShowClose: false
+    });
+});
