@@ -164,7 +164,13 @@ class AccountController extends AbstractController
      * @IsGranted("ROLE_USER")
      * @return Response
      */
-    public function MyAccount(){
+    public function MyAccount()
+    {
+
+        $user = $this->getUser();
+        $orders = $user->getOrders()->getValues();
+
+
         return $this->render('backend/account/index.html.twig', [
             'user' => $this->getUser()
         ]);

@@ -85,6 +85,7 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Order", mappedBy="user")
+     * @ORM\OrderBy({"createdAt" = "DESC"})
      */
     private $orders;
 

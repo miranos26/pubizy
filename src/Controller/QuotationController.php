@@ -21,8 +21,11 @@ class QuotationController extends AbstractController
         $form = $this->createForm(QuotationType::class, $quotation);
         $form->handleRequest($request);
 
+        dump($form->get('reference')->getData());
+
         if($form->isSubmitted() && $form->isValid()){
 
+            if(($form->get('reference')->getData() !== null)){
             /** @var UploadedFile  $file */
             $file = $form->get('reference')->getData();
 
@@ -35,6 +38,8 @@ class QuotationController extends AbstractController
             );
 
             $quotation->setReference($fileName);
+            }
+
 
             $manager->persist($quotation);
             $manager->flush();

@@ -3,8 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Order;
+use App\Entity\User;
 use App\Form\OrderType;
 use App\Repository\OrderRepository;
+use App\Repository\UserRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,7 +39,8 @@ class OrderController extends AbstractController
      * @IsGranted("ROLE_ADMIN")
      * @return Response
      */
-    public function create(Request $request, ObjectManager $manager){
+    public function create(Request $request, ObjectManager $manager, UserRepository $userRepository){
+
         $order = new Order();
 
         $form = $this->createForm(OrderType::class, $order);
@@ -45,6 +48,17 @@ class OrderController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+
+            $orderEmail = $order->getClientEmail();
+
+            $user = $userRepository->findOneBy([
+                'email' => $orderEmail
+            ]);
+
+            if($user){
+                $order->setUser($user);
+            }
+
             $manager->persist($order);
             $manager->flush();
 
@@ -70,12 +84,23 @@ class OrderController extends AbstractController
      * @param Order $order
      * @return Response
      */
-    public function edit(Order $order, Request $request, ObjectManager $manager){
+    public function edit(Order $order, Request $request, ObjectManager $manager, UserRepository $userRepository){
         $form = $this->createForm(OrderType::class, $order);
 
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
+
+            $orderEmail = $order->getClientEmail();
+
+            $user = $userRepository->findOneBy([
+                'email' => $orderEmail
+            ]);
+
+            dump($user);
+
+            $order->setUser($user);
+
 
             $manager->persist($order);
             $manager->flush();
