@@ -397,3 +397,8 @@
 .image-article-admin{
     width: 15rem;
 }
+
+#order_createdAt_day, #order_createdAt_month, #order_deliveryAt_day, #order_deliveryAt_month {
+    margin-right: 1rem;
+}
+

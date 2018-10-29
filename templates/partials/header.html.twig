@@ -1,14 +1,14 @@
 {% block nav %}
 
-<nav class="navbar navbar-expand-sm navbar-light navbar-menu-perso">
-    <div class="container">
+<nav class="navbar navbar-expand-sm navbar-light navbar-menu-perso navbar-transparent-homepage navbar-dark">
+    <div class="container menu-homepage-container">
 
         <a href="{{ path('home') }}" class="navbar-brand link-home-admin"> <img class="logo" src="{{ asset("img/logo-pubizy.png") }}"> </a>
-        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Navigation">
+        <button class="navbar-toggler menu-icon-website" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse pt-3" id="navbarCollapse">
+        <div class="collapse navbar-collapse pt-3 navbar-homepage" id="navbarCollapse">
             <ul class="navbar-nav ml-auto main-menu">
                 <li class="nav-item active">
                     <a href="{{ path('home') }}" class="nav-link current"> Accueil </a>
@@ -35,7 +35,7 @@
                 <li class="nav-item">
                     <a href="{{ path('blog') }}" class="nav-link"> Blog </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item btn-li-home">
                     <a href="{{ path('quotation') }}" class="nav-link btn btn-pub-header ml-3"> Faire une demande </a>
                 </li>
             </ul>

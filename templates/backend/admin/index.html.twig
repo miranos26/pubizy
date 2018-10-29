@@ -71,7 +71,7 @@
                                                     <i class="fas fa-coins"></i>
                                                 </div>
                                                 <div>
-                                                    <p class="month-gain"> 2345 € </p>
+                                                    <p class="month-gain"> {{ amount }} € </p>
                                                     <p class="underline-gain"> ce mois-ci </p>
                                                 </div>
                                             </div>
@@ -200,7 +200,7 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-3 fast-actions">
-                                                    <a href="" class="btn  btn-block card-bg-orange text-white">
+                                                    <a href="{{ path('admin_work_create') }}" class="btn  btn-block card-bg-orange text-white">
                                                         <i class="fas fa-plus"></i> Portfolio
                                                     </a>
                                                 </div>
@@ -210,12 +210,12 @@
                                                     </a>
                                                 </div>
                                                 <div class="col-md-3 fast-actions">
-                                                    <a href="" class="btn btn-danger btn-block card-bg-red">
+                                                    <a href="#" class="btn btn-danger btn-block card-bg-red">
                                                         <i class="fas fa-plus"></i> Catégorie
                                                     </a>
                                                 </div>
                                                 <div class="col-md-3 fast-actions">
-                                                    <a href="" class="btn btn-block card-bg-purple text-white">
+                                                    <a href="{{ path('admin_user_create') }}" class="btn btn-block card-bg-purple text-white">
                                                         <i class="fas fa-plus"></i> Utilisateur
                                                     </a>
                                                 </div>
