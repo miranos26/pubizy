@@ -13,26 +13,18 @@ class AdminDashboardController extends AbstractController
     /**
      * @Route("/admin", name="admin_dashboard")
      */
-    public function index(OrderRepository $orderRepository, ObjectManager $manager)
+    public function index(OrderRepository $orderRepository, QuotationRepository $quotationRepository, ObjectManager $manager)
     {
         $orders = $orderRepository->findBy([],[
             'createdAt' => 'DESC'
         ],5);
 
-        $allOrders = $orderRepository->findAll();
-        $amount = 0;
-
-        foreach ($allOrders as $order){
-            $orderPrice = $order->getPrice();
-            $amount += $orderPrice;
-    }
-
         $quotations = $manager->createQuery('SELECT q FROM App\Entity\Quotation q WHERE q.isNew = true')->getResult();
+
 
         return $this->render('backend/admin/index.html.twig', [
             'orders' => $orders,
-            'quotations' => $quotations,
-            'amount' => $amount
+            'quotations' => $quotations
         ]);
     }
 
