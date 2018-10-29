@@ -123,6 +123,7 @@ class User implements UserInterface
         $this->userRoles = new ArrayCollection();
 
         $this->setIsSuscribedNewsletter(true);
+        $this->quotationResponses = new ArrayCollection();
     }
 
     /**
@@ -409,6 +410,5 @@ class User implements UserInterface
 
         return $this;
     }
-
 
 }

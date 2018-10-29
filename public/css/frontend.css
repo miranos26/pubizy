@@ -852,6 +852,11 @@ header{
     margin-right:.3rem;
 }
 
+.pdf-icon{
+    width: 1.8rem;
+    margin-left: .5rem;
+}
+
 .order-nav-item{
     background: #f39c11;
 }
@@ -1512,6 +1517,8 @@ label[for=quotation_reference]{
     margin-left: 6rem;
     margin-top: -17px;
 }
+
+
 
 
 

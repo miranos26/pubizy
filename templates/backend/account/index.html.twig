@@ -88,63 +88,58 @@
                         <div class="py-5 content-container-client-dashboard">
                             <h2>Mes commandes</h2>
 
-                                <table class="table table-sm">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">Identifiant</th>
-                                        <th scope="col">Titre</th>
-                                        <th scope="col">Statut</th>
-                                        <th scope="col"> Prix </th>
-                                        <th scope="col">Date de livraison</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    {% for order in user.orders %}
-                                    <tr>
-                                        <td> {{ order.id }} </td>
-                                        <td>{{ order.name }}</td>
-                                        <td>{{ order.status }}</td>
-                                        <td>{{ order.price }} € </td>
-                                        <td>{{ order.deliveryAt | date('d/m/Y') }}</td>
-                                    </tr>
-                                    {% endfor %}
-                                    </tbody>
-                                </table>
-
-                            <div class="d-flex justify-content-center">
-                                <ul class="pagination pagination-sm">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#">&laquo;</a>
-                                    </li>
-                                    <li class="page-item active">
-                                        <a class="page-link" href="#">1</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">2</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">3</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">4</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">5</a>
-                                    </li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">&raquo;</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <table class="table table-sm">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Identifiant</th>
+                                    <th scope="col">Titre</th>
+                                    <th scope="col">Statut</th>
+                                    <th scope="col"> Prix </th>
+                                    <th scope="col">Date de livraison</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for order in user.orders %}
+                                <tr>
+                                    <td> {{ order.id }} </td>
+                                    <td>{{ order.name }}</td>
+                                    <td>{{ order.status }}</td>
+                                    <td>{{ order.price }} € </td>
+                                    <td>{{ order.deliveryAt | date('d/m/Y') }}</td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
 
                         </div>
                     </div>
+
 
                     <!------- Mes Devis ------------>
                     <div id="quotation" class="collapse">
                         <div class="py-5 content-container-client-dashboard">
                             <h2>Mes Devis</h2>
-                            <p> liste </p>
+                            <table class="table table-sm">
+                                <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Réf.</th>
+                                    <th scope="col">Date d'édition</th>
+                                    <th scope="col"> Devis </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for quotation in user.quotations %}
+                                    <tr>
+                                        <td> {{ quotation.id }} </td>
+                                        <td> {{  quotation.product }}</td>
+                                        <td>{{ quotation.createdAt | date('d/m/Y')  }}</td>
+                                        <td> <a href="{{ asset('uploads/usersfiles/' ~ quotation.responseAttachment) }}" download> <img src="{{ asset('img/pdf.png') }}" alt="proposition de devis" class="pdf-icon"> </a> </td>
+                                        <td></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 

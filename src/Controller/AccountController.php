@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Form\AccountType;
 use App\Form\PasswordUpdateType;
 use App\Form\RegistrationType;
+use App\Repository\QuotationRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -164,15 +165,13 @@ class AccountController extends AbstractController
      * @IsGranted("ROLE_USER")
      * @return Response
      */
-    public function MyAccount()
+    public function MyAccount(QuotationRepository $quotationRepository)
     {
-
-        $user = $this->getUser();
-        $orders = $user->getOrders()->getValues();
-
+        $quotationRepository->findAll();
 
         return $this->render('backend/account/index.html.twig', [
-            'user' => $this->getUser()
+            'user' => $this->getUser(),
+            'quotations' => $quotationRepository
         ]);
     }
 

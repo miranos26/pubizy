@@ -131,6 +131,11 @@ class Quotation
      */
     private $isAccepted;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $responseAttachment;
+
 
     public function __construct()
     {
@@ -416,6 +421,18 @@ class Quotation
     public function setIsAccepted(?bool $isAccepted): self
     {
         $this->isAccepted = $isAccepted;
+
+        return $this;
+    }
+
+    public function getResponseAttachment(): ?string
+    {
+        return $this->responseAttachment;
+    }
+
+    public function setResponseAttachment(?string $responseAttachment): self
+    {
+        $this->responseAttachment = $responseAttachment;
 
         return $this;
     }

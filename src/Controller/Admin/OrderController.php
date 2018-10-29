@@ -97,8 +97,6 @@ class OrderController extends AbstractController
                 'email' => $orderEmail
             ]);
 
-            dump($user);
-
             $order->setUser($user);
 
 

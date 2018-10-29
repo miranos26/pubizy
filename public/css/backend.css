@@ -397,3 +397,31 @@
 .image-article-admin{
     width: 15rem;
 }
+
+
+#quotation_response_responseAttachment{
+    width: 5rem;
+    background: grey;
+    display: block !important;
+}
+
+
+label[for=quotation_response_responseAttachment]:after {
+    border: none;
+    background: #f39c11;
+    border-radius: .5rem;
+    color:white;
+    position: absolute;
+    left:0;
+    width: 5rem;
+}
+
+label[for=quotation_response_responseAttachment]{
+    border: none;
+    background:none;
+}
+
+.filename{
+    margin-left: 6rem;
+    margin-top: -35px;
+}
