@@ -398,7 +398,6 @@
     width: 15rem;
 }
 
-<<<<<<< HEAD
 
 #quotation_response_responseAttachment{
     width: 5rem;
@@ -426,9 +425,7 @@ label[for=quotation_response_responseAttachment]{
     margin-left: 6rem;
     margin-top: -35px;
 }
-=======
+
 #order_createdAt_day, #order_createdAt_month, #order_deliveryAt_day, #order_deliveryAt_month {
     margin-right: 1rem;
 }
-
->>>>>>> parent of 81007d28... Revert "Amelioration du responsive design"
