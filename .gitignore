@@ -15,4 +15,12 @@
 /.web-server-pid
 ###< symfony/web-server-bundle ###
 
-/node_modules
+/node_modules/
+
+/.idea/
+node_modules/.bin/acorn
+node_modules/.bin/ansi-html
+node_modules/.bin/ansi-html.cmd
+node_modules/.bin/atob
+node_modules/.bin/atob.cmd
+.idea/workspace.xml

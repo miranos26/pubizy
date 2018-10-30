@@ -10,8 +10,8 @@
     <div class="container container-subscription">
         <div class="row">
             <div class="col-md-8">
-                <h1 class="subscription-title"> S'inscrire sur <br> la plateforme Pubizy </h1>
-                <ul class="subscription-avantages-list">
+                <h1 class="subscription-title mb-4"> S'inscrire sur <br> la plateforme Pubizy </h1>
+                <ul class="subscription-avantages-list d-none d-md-block">
                     <li class="avantages-item">
                         <span class="image-avantage-item">
                               <img src="{{ asset('img/001-network.svg') }}" alt="une plateforme simple et ergonomique" class="network-icon">
@@ -41,11 +41,11 @@
 
                 </ul>
             </div>
-            <div class="col-md-4">
-                <h2 class="text-white text-bienvenue text-center"> Bienvenue ! </h2>
+            <div class="col-md-4 registration-form-container">
+                <h2 class="text-white text-bienvenue text-center d-none d-md-block"> Bienvenue ! </h2>
                 {{ form_start(form) }}
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 firstname-container">
                         {{ form_errors(form.firstname) }}
                         {{ form_widget(form.firstname) }}
                     </div>

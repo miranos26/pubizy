@@ -12,13 +12,13 @@
                     <div class="col-lg-8 d-lg-block mx-auto">
                         <span class="phone"> <p> <i class="fas fa-phone mr-2"></i> 06.59.91.88.57 </p> </span>
                         <div id="Home-title">
-                            <h1 class="Title-Homepage d-none d-md-block "> Quel est votre besoin en création aujourd'hui&nbsp;? </h1>
-                            <p class="mt-3 underline"> Pubizy répond efficacement à tous vos projets print & web. <br> Obtenez un devis immédiat en cliquant sur le bouton ci-dessous. </p>
-                            <a href="{{ path('quotation') }}" class="btn btn-lg mt-4 button-home ask-button"> FAIRE UNE DEMANDE  <i class="fas pt-1 fa-angle-right"> </i> </a>
-                            <div id="home-icons" class="py-5">
+                            <h1 class="Title-Homepage"> Quel est votre besoin en création aujourd'hui&nbsp;? </h1>
+                            <p class="mt-3 underline title-homepage-underline"> Pubizy répond efficacement à tous vos projets print & web. <br> Obtenez un devis immédiat en cliquant sur le bouton ci-dessous. </p>
+                            <a href="{{ path('quotation') }}" class="btn btn-lg mt-4 button-home ask-button btn-home-ask-button"> FAIRE UNE DEMANDE  <i class="fas pt-1 fa-angle-right"> </i> </a>
+                            <div id="home-icons" class="py-5 d-none d-md-block">
                                 <div class="col-md-4 mb-4 text-center">
-                                    <i class="fas fa-bolt"></i>
-                                    <p> Devis en ligne immédiat </p>
+                                    <i class="fas fa-bolt d-none d-md-block"></i>
+                                    <p> Devis en ligne sous 2h </p>
                                 </div>
                                 <div class="col-md-4 mb-4 text-center">
                                     <i class="fas fa-piggy-bank"></i>
@@ -59,7 +59,7 @@
                 <div class="col-md-4 mb-4 text-center">
                     <img src="{{ asset('img/003-flyer.svg') }}" class="icon-services"/>
                     <h3 class="services-title"> SUPPORT DE COMMUNICATION </h3>
-                    <p> Texte 1 </p>
+                    <p> Nous nous occupons de la création et de l'impression de tous vos supports publicitaires.  </p>
                 </div>
                 <div class="col-md-4 mb-4 text-center">
                     <img src="{{ asset('img/009-coding.svg') }}" class="icon-services"/>
@@ -76,12 +76,12 @@
                 <div class="col-md-4 mb-4 text-center">
                     <img src="{{ asset('img/014-cube.svg') }}" class="icon-services"/>
                     <h3 class="services-title"> 3D & VIDEO </h3>
-                    <p> Vidéos institutionnelles, motion design et imagerie 3D. </p>
+                    <p> Présentez vos services et produits de manière dynamique et ludique grâce à nos vidéos institutionnelles, motion design et l'imagerie 3D. </p>
                 </div>
                 <div class="col-md-4 mb-4 text-center">
                     <img src="{{ asset('img/005-vector.svg') }}" class="icon-services"/>
                     <h3 class="services-title"> EXÉCUTION GRAPHIQUE </h3>
-                    <p> Texte 1 </p>
+                    <p> Besoin d'une intervention graphique ? Rapidité, flexibilité et maîtrise de votre budget seront au rendez-vous. </p>
                 </div>
             </div>
         </div>
@@ -90,12 +90,12 @@
     <section>
         <div class="container client-container mb-5">
             <div class="row expert-section-home">
-                <div class="col-md-6 text-center">
+                <div class="col-md-12 col-lg-6 text-center">
                     <h2 class="ServicesTitle"> Expert du design, de la communication et du web </h2>
                     <p class="text-center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis in nulla eget purus finibus ultricies. Aliquam nec nunc porta dui dapibus consectetur.  </p>
                     <a href="{{ path('quotation') }}" class="btn btn-lg mt-4 button-home ask-button"> FAIRE UNE DEMANDE  <i class="fas pt-1 fa-angle-right"> </i> </a>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 d-none d-lg-block">
                     <img src="img/illu_client.png" class=illuClient alt="illustration_client">
                 </div>
             </div>
@@ -131,7 +131,7 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-4">
+            <div class="text-center mt-4 d-none d-lg-block">
                 <a href="{{ path('quotation') }}" class="btn btn-lg mt-4 button-home ask-button"> FAIRE UNE DEMANDE  <i class="fas pt-1 fa-angle-right"> </i> </a>
             </div>
         </div>
@@ -142,10 +142,10 @@
     <section>
         <div class="container client-container">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-lg-6 d-none d-lg-block">
                     <img src="img/echange.png" class=illuEchangeClient alt="illustration_client">
                 </div>
-                <div class="col-md-6 text-center">
+                <div class="col-lg-6 col-md-12 text-center">
                     <h2 class="ServicesTitle"> Une équipe disponible à votre service </h2>
                     <p class="text-center"> Joignable par téléphone, mail ou Chat, nous sommes à votre écoute pour vous accompagner tout au long de votre projet.  </p>
                     <a href="{{ path('quotation') }}" class="btn btn-lg mt-4 button-home ask-button"> FAIRE UNE DEMANDE  <i class="fas pt-1 fa-angle-right"> </i> </a>

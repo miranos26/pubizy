@@ -12,3 +12,8 @@ $(function(){
        $(this).addClass('activeItemDb');
    });
 });
+
+
+$('.menu-icon-website').click(function(){
+    $('.navbar-transparent-homepage').addClass('menu-bg-dark')
+});
